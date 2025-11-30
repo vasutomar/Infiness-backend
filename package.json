@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "migrate:exercises": "node migrations/migrate-insert-exercises.js",
     "build": "nodemon server.js"
   },
