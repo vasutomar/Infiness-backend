@@ -3,8 +3,8 @@ dotenv.config();
 
 const { MongoClient } = require("mongodb");
 
-const uri = process.env.MONGO_LOCAL_URI;
-const dbName = process.env.DATABASE;
+const uri = process.env.MONGO_LOCAL_URI || 'mongodb+srv://Vasu:infi@infiness.ygyw1ce.mongodb.net/Infiness';
+const dbName = process.env.DATABASE || 'Infiness';
 const collectionName = "exercises";
 
 const exercises = [{
