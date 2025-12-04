@@ -1,11 +1,7 @@
 const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 const Workout = require("../models/Workout");
 
 const router = express.Router();
-const authMiddleware = require("../middleware/authMiddleware");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -37,17 +33,24 @@ router.get("/", async (req, res) => {
             shoulders: lastWorkout.workout.shoulders,
             arms: lastWorkout.workout.arms,
             legs: lastWorkout.workout.legs,
-            abs: lastWorkout.workout.abs
-          }
+            abs: lastWorkout.workout.abs,
+          },
         });
         await newEntry.save();
         res.json(newEntry);
       } else {
-        let freshWorkout = new Workout({
+        let freshWorkout = {
           date,
-          userId
-        });
-        await freshWorkout.save();
+          userId,
+          workout: {
+            chest,
+            back,
+            shoulders,
+            arms,
+            legs,
+            abs,
+          },
+        };
         res.json(freshWorkout);
       }
     }
@@ -61,8 +64,6 @@ router.put("/", async (req, res) => {
   const { workout, notes } = req.body;
   const userId = req.user.id;
 
-  const formattedDate = new Date(date);
-
   try {
     const existingWorkout = await Workout.findOne({ userId, date });
     if (existingWorkout) {
@@ -75,8 +76,10 @@ router.put("/", async (req, res) => {
         {
           $set: {
             workout,
+            notes
           },
-        }
+        },
+        { upsert: true, returnDocument: "after" }
       );
       res.json(updated);
     }
