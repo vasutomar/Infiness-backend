@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "migrate:exercises": "node migrations/migrate-insert-exercises.js",
-    "build": "nodemon server.js"
+    "build": "node server.js"
   },
   "keywords": [],
   "author": "",
