@@ -43,12 +43,12 @@ router.get("/", async (req, res) => {
           date,
           userId,
           workout: {
-            chest,
-            back,
-            shoulders,
-            arms,
-            legs,
-            abs,
+            chest: [],
+            back: [],
+            shoulders: [],
+            arms: [],
+            legs: [],
+            abs: [],
           },
         };
         res.json(freshWorkout);
@@ -65,24 +65,20 @@ router.put("/", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    const existingWorkout = await Workout.findOne({ userId, date });
-    if (existingWorkout) {
-      existingWorkout.workout = workout;
-      let updated = await Workout.findOneAndUpdate(
-        {
-          userId,
-          date,
+    let updated = await Workout.findOneAndUpdate(
+      {
+        userId,
+        date,
+      },
+      {
+        $set: {
+          workout,
+          notes,
         },
-        {
-          $set: {
-            workout,
-            notes
-          },
-        },
-        { upsert: true, returnDocument: "after" }
-      );
-      res.json(updated);
-    }
+      },
+      { upsert: true, returnDocument: "after" }
+    );
+    res.json(updated);
   } catch (err) {
     res.status(500).send("Server error");
   }
