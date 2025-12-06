@@ -61,4 +61,5 @@ jobs:
           app-name: 'infiness'
           slot-name: 'Production'
           package: .
+          configuration-variables: PORT='${{ secrets.PORT }}', DATABASE='${{ secrets.DATABASE }}', JWT_SECRET='${{ secrets.JWT_SECRET }}', MONGO_URI='${{ secrets.MONGO_URI }}', NODE_ENV='${{ secrets.NODE_ENV }}'
           
