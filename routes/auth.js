@@ -40,7 +40,7 @@ router.post("/signup", async (req, res) => {
     await user.save();
     winston.info("AUTH - SIGNUP : User saved successfully");
     winston.info("AUTH - SIGNUP : Preparing token");
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'secret', {
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "100d",
     });
     winston.info("AUTH - SIGNUP : Token prepared, sending response");
@@ -70,7 +70,7 @@ router.post("/login", async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ error: true, msg: "Wrong password" });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || 'secret', {
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "100d",
     });
     res.json({
