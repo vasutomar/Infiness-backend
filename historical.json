@@ -1,0 +1,254 @@
+[
+  {
+    "date": { "$date": "2025-12-02T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Incline Dumbbell Press",
+          "description": "Press dumbbells on incline bench.",
+          "primaryQualifier": { "label": "Repetitions", "value": 12},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 20}
+        },
+        {
+          "title": "Cable Chest Fly",
+          "description": "Cable fly isolating chest muscles.",
+          "primaryQualifier": { "label": "Repetitions", "value": 16},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 22}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-03T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 9},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 57}
+        },
+        {
+          "title": "Dumbbell Chest Fly",
+          "primaryQualifier": { "label": "Repetitions", "value": 15},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 15}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-04T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Incline Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 10},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 58}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-05T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 8},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 60}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-06T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Push-Ups",
+          "primaryQualifier": { "label": "Repetitions", "value": 30},
+          "secondaryQualifier": { "label": "Variation", "value": 0}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-07T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Cable Chest Fly",
+          "primaryQualifier": { "label": "Repetitions", "value": 17},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 24}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-08T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 8},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 62}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-09T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Incline Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 9},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 60}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-10T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Dumbbell Chest Fly",
+          "primaryQualifier": { "label": "Repetitions", "value": 15},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 16}
+        }
+      ]
+    }
+  },
+
+  {
+    "date": { "$date": "2025-12-11T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 7},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 64}
+        }
+      ]
+    }
+  },
+  {
+    "date": { "$date": "2025-11-27T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "description": "Compound chest press using barbell.",
+          "primaryQualifier": { "label": "Repetitions", "value": 10},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 45}
+        },
+        {
+          "title": "Incline Dumbbell Press",
+          "description": "Press dumbbells on incline bench.",
+          "primaryQualifier": { "label": "Repetitions", "value": 12},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 18}
+        }
+      ]
+    },
+    "createdAt": { "$date": "2025-11-27T10:12:55.648Z" },
+    "updatedAt": { "$date": "2025-11-27T10:37:11.030Z" }
+  },
+
+  {
+    "date": { "$date": "2025-11-28T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "description": "Compound chest press using barbell.",
+          "primaryQualifier": { "label": "Repetitions", "value": 8},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 50}
+        },
+        {
+          "title": "Cable Chest Fly",
+          "description": "Cable fly isolating chest muscles.",
+          "primaryQualifier": { "label": "Repetitions", "value": 15},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 20}
+        }
+      ]
+    },
+    "createdAt": { "$date": "2025-11-28T13:10:44.648Z" },
+    "updatedAt": { "$date": "2025-11-28T13:40:30.030Z" }
+  },
+
+  {
+    "date": { "$date": "2025-11-29T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Incline Bench Press",
+          "description": "Barbell press on incline bench.",
+          "primaryQualifier": { "label": "Repetitions", "value": 10},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 55}
+        },
+        {
+          "title": "Dumbbell Chest Fly",
+          "description": "Fly motion with dumbbells on bench.",
+          "primaryQualifier": { "label": "Repetitions", "value": 14},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 14}
+        }
+      ]
+    },
+    "createdAt": { "$date": "2025-11-29T18:11:25.648Z" },
+    "updatedAt": { "$date": "2025-11-29T18:42:33.030Z" }
+  },
+
+  {
+    "date": { "$date": "2025-11-30T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Push-Ups",
+          "description": "Bodyweight chest pressing movement.",
+          "primaryQualifier": { "label": "Repetitions", "value": 25},
+          "secondaryQualifier": { "label": "Variation", "value": 0}
+        }
+      ]
+    },
+    "createdAt": { "$date": "2025-11-30T11:22:10.648Z" },
+    "updatedAt": { "$date": "2025-11-30T11:40:01.030Z" }
+  },
+
+  {
+    "date": { "$date": "2025-12-01T00:00:00.000Z" },
+    "userId": { "$oid": "692aa1dce2016b4069e6cd7d" },
+    "workout": {
+      "chest": [
+        {
+          "title": "Barbell Bench Press",
+          "primaryQualifier": { "label": "Repetitions", "value": 8},
+          "secondaryQualifier": { "label": "Weight (kg)", "value": 55}
+        }
+      ]
+    },
+    "createdAt": { "$date": "2025-12-01T09:21:29.648Z" },
+    "updatedAt": { "$date": "2025-12-01T09:34:11.030Z" }
+  }
+]

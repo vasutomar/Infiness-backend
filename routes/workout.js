@@ -1,8 +1,11 @@
 const express = require("express");
 const Workout = require("../models/Workout");
+const winston = require("../utils/winston");
 
 const router = express.Router();
 const dotenv = require("dotenv");
+const { Types } = require("mongoose");
+
 dotenv.config();
 
 router.get("/health", function (req, res) {
@@ -16,43 +19,27 @@ router.get("/", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    let workoutData = await Workout.findOne({ userId: userId, date });
+    winston.info("WORKOUT - GET : Fetching current workout");
+    let workoutData = await Workout.findOne({ userId, date });
     if (workoutData) {
+      winston.info("WORKOUT - GET : Current workout found");
       res.json(workoutData);
     } else {
-      const lastWorkout = await Workout.findOne({
-        date: { $lt: date },
-      }).sort({ date: -1 });
-      if (lastWorkout) {
-        const newEntry = new Workout({
-          date,
-          userId,
-          workout: {
-            chest: lastWorkout.workout.chest,
-            back: lastWorkout.workout.back,
-            shoulders: lastWorkout.workout.shoulders,
-            arms: lastWorkout.workout.arms,
-            legs: lastWorkout.workout.legs,
-            abs: lastWorkout.workout.abs,
-          },
-        });
-        await newEntry.save();
-        res.json(newEntry);
-      } else {
-        let freshWorkout = {
-          date,
-          userId,
-          workout: {
-            chest: [],
-            back: [],
-            shoulders: [],
-            arms: [],
-            legs: [],
-            abs: [],
-          },
-        };
-        res.json(freshWorkout);
-      }
+      winston.info("WORKOUT - GET : No current workout found");
+      let freshWorkout = {
+        date,
+        userId,
+        workout: {
+          chest: [],
+          back: [],
+          shoulders: [],
+          arms: [],
+          legs: [],
+          abs: [],
+          cardio: [],
+        },
+      };
+      res.json(freshWorkout);
     }
   } catch (err) {
     res.status(500).send(err.message);
