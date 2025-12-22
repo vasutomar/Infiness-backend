@@ -99,7 +99,7 @@ router.post("/prefill", async (req, res) => {
         },
         { upsert: true, returnDocument: "after" }
       );
-      res.json({ workout: updated });
+      res.json(updated);
     } else {
       res.status(500).send(`No previous record found`);
     }

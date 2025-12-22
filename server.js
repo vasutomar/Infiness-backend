@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
 const workoutRoutes = require("./routes/workout");
 const exercisesRoutes = require("./routes/exercises");
+const graphRoutes = require("./routes/graph");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -20,6 +21,7 @@ app.use(authMiddleware);
 app.use("/api/auth", authRoutes);
 app.use("/api/workout", workoutRoutes);
 app.use("/api/exercises", exercisesRoutes);
+app.use("/api/graph", graphRoutes);
 
 module.exports = app;
 const port = process.env.PORT;
