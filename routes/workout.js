@@ -72,38 +72,40 @@ router.put("/", async (req, res) => {
 });
 
 // SYNC
-// router.post("/", async (req, res) => {
-//   const { date } = req.body;
-//   const userId = req.user.id;
+router.post("/prefill", async (req, res) => {
+  const { date, group } = req.body;
+  const userId = req.user.id;
 
-//   const formattedDate = new Date(date);
-
-//   try {
-//     const existingWorkout = await Workout.findOne({ userId, date });
-//     if (existingWorkout) {
-//         existingWorkout.workout = workout;
-//         let updated = await Workout.findOneAndUpdate({
-//             userId,
-//             date
-//         }, {
-//             $set: {
-//                 workout
-//             }
-//         });
-//         res.json({ workout: updated})
-//     } else {
-//       let workoutObject = new Workout({
-//         date: formattedDate,
-//         userId,
-//         workout,
-//         notes,
-//       });
-//       await workoutObject.save();
-//       res.json({ workout: workoutObject });
-//     }
-//   } catch (err) {
-//     res.status(500).send("Server error");
-//   }
-// });
+  const groupQuery = `workout.${group}.0`;
+  const updateGroupQuery = `workout.${group}`;
+  const formattedDate = new Date(date);
+  try {
+    let previousRecord = await Workout.findOne({
+      userId,
+      date: { $lt: formattedDate },
+      [groupQuery]: { $exists: true },
+    }).sort({ date: -1 });
+    if (previousRecord) {
+      const exercises = previousRecord.workout[group];
+      let updated = await Workout.findOneAndUpdate(
+        {
+          userId,
+          date,
+        },
+        {
+          $set: {
+            [updateGroupQuery]: exercises,
+          },
+        },
+        { upsert: true, returnDocument: "after" }
+      );
+      res.json({ workout: updated });
+    } else {
+      res.status(500).send(`No previous record found`);
+    }
+  } catch (err) {
+    res.status(500).send("Server error");
+  }
+});
 
 module.exports = router;
