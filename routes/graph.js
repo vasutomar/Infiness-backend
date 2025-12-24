@@ -250,7 +250,6 @@ router.get("/breakup", async (req, res) => {
     let keys = Object.keys(counts);
     for (let i = 0; i < totalRecords; i++) {
       keys.forEach((key) => {
-        console.log("key", key);
         counts[key] += results[i].workout[key].length ? 1 : 0;
       });
     }
