@@ -28,7 +28,8 @@ const WorkoutSchema = new mongoose.Schema(
       arms: [ExerciseSchema],
       legs: [ExerciseSchema],
       abs: [ExerciseSchema],
-      cardio: [ExerciseSchema]
+      cardio: [ExerciseSchema],
+      core: [ExerciseSchema]
     },
     notes: { type: String },
   },

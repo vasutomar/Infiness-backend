@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    streak: {
+        type: Number,
+        required: false
+    },
+    lastLogin: {
+        type: Date,
+        required: false
     }
 }, {
     collection: 'users',
