@@ -1,7 +1,11 @@
 const jwt = require("jsonwebtoken");
 
 module.exports = function (req, res, next) {
-  if (req.url.includes("auth")) {
+  if (
+    ["login", "signup"].some((endpoint) => {
+      return req.url.includes(endpoint);
+    })
+  ) {
     next();
   } else {
     const token = req.header("Authorization")?.replace("Bearer ", "");

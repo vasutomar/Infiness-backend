@@ -7,6 +7,8 @@ const authMiddleware = require("../middleware/authMiddleware");
 const dotenv = require("dotenv");
 
 const winston = require("../utils/winston");
+const Exercise = require("../models/Exercise");
+const Workout = require("../models/Workout");
 
 dotenv.config();
 
@@ -121,10 +123,11 @@ router.post("/login", async (req, res) => {
 
 // Update password route
 router.post("/update/password", async (req, res) => {
-  const { email, current, toUpdate } = req.body;
+  const { current, toUpdate } = req.body;
 
   try {
-    const user = await User.findOne({ email });
+    const userId = req.user.id;
+    const user = await User.findOne({ _id: userId });
     if (!user)
       return res.status(400).json({ error: true, msg: "User not found" });
 
@@ -135,7 +138,7 @@ router.post("/update/password", async (req, res) => {
         .json({ error: true, msg: "Wrong current password" });
     const hashedPassword = await bcrypt.hash(toUpdate, 10);
     await User.updateOne(
-      { email },
+      { userId },
       {
         $set: {
           password: hashedPassword,
@@ -146,6 +149,17 @@ router.post("/update/password", async (req, res) => {
     res.json("Password updated");
   } catch (err) {
     res.status(500).send("Server error");
+  }
+});
+
+router.delete("/", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    await User.deleteOne({ _id: userId });
+    await Workout.deleteMany({ userId });
+    res.json("User deleted");
+  } catch (err) {
+    res.status(500).send(`Server error: ${err.message}`);
   }
 });
 
