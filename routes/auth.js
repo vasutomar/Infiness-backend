@@ -107,8 +107,43 @@ router.post("/login", async (req, res) => {
     });
     res.json({
       token,
-      user: { id: user._id, name: user.name, email: user.email, streak: user.streak },
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        streak: user.streak,
+      },
     });
+  } catch (err) {
+    res.status(500).send("Server error");
+  }
+});
+
+// Update password route
+router.post("/update/password", async (req, res) => {
+  const { email, current, toUpdate } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user)
+      return res.status(400).json({ error: true, msg: "User not found" });
+
+    const isMatch = await bcrypt.compare(current, user.password);
+    if (!isMatch)
+      return res
+        .status(400)
+        .json({ error: true, msg: "Wrong current password" });
+    const hashedPassword = await bcrypt.hash(toUpdate, 10);
+    await User.updateOne(
+      { email },
+      {
+        $set: {
+          password: hashedPassword,
+        },
+      }
+    );
+
+    res.json("Password updated");
   } catch (err) {
     res.status(500).send("Server error");
   }
