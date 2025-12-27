@@ -19,13 +19,10 @@ router.get("/", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    winston.info("WORKOUT - GET : Fetching current workout");
     let workoutData = await Workout.findOne({ userId, date });
     if (workoutData) {
-      winston.info("WORKOUT - GET : Current workout found");
       res.json(workoutData);
     } else {
-      winston.info("WORKOUT - GET : No current workout found");
       let freshWorkout = {
         date,
         userId,

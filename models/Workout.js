@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const QualifierSchema = new mongoose.Schema({
   label: { type: String, required: true },
-  value: { type: Number, required: true },
+  values: [{ type: Number, required: true }],
 });
 
 const ExerciseSchema = new mongoose.Schema({
