@@ -8,6 +8,7 @@ const workoutRoutes = require("./routes/workout");
 const exercisesRoutes = require("./routes/exercises");
 const graphRoutes = require("./routes/graph");
 const webSupport = require("./routes/web-support.js");
+const diet = require("./routes/diet.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -24,6 +25,7 @@ app.use("/api/workout", workoutRoutes);
 app.use("/api/exercises", exercisesRoutes);
 app.use("/api/graph", graphRoutes);
 app.use("/api/web-support", webSupport);
+app.use("/api/diet", diet);
 
 module.exports = app;
 const port = process.env.PORT;
