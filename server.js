@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth");
 const workoutRoutes = require("./routes/workout");
 const exercisesRoutes = require("./routes/exercises");
 const graphRoutes = require("./routes/graph");
+const webSupport = require("./routes/web-support.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -22,21 +23,18 @@ app.use("/api/auth", authRoutes);
 app.use("/api/workout", workoutRoutes);
 app.use("/api/exercises", exercisesRoutes);
 app.use("/api/graph", graphRoutes);
+app.use("/api/web-support", webSupport);
 
 module.exports = app;
 const port = process.env.PORT;
-app.listen(port, () =>
-        console.log(`Server running on port ${port}`)
-      );
-  mongoose
-    .connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => {
-      console.log("Connected to MongoDB");
-      app.listen(port, () =>
-        console.log(`Server running on port ${port}`)
-      );
-    })
-    .catch((err) => console.log(err));
+app.listen(port, () => console.log(`Server running on port ${port}`));
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB");
+    app.listen(port, () => console.log(`Server running on port ${port}`));
+  })
+  .catch((err) => console.log(err));
