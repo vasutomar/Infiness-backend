@@ -7,7 +7,7 @@ const authMiddleware = require("../middleware/authMiddleware");
 const dotenv = require("dotenv");
 
 const winston = require("../utils/winston");
-const Exercise = require("../models/Exercise");
+const Diet = require("../models/Diet");
 const Workout = require("../models/Workout");
 
 dotenv.config();
@@ -157,6 +157,7 @@ router.delete("/", async (req, res) => {
     const userId = req.user.id;
     await User.deleteOne({ _id: userId });
     await Workout.deleteMany({ userId });
+    await Diet.deleteMany({ userId });
     res.json("User deleted");
   } catch (err) {
     res.status(500).send(`Server error: ${err.message}`);
