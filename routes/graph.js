@@ -19,7 +19,8 @@ router.get("/group", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    const year = 2025; // user selected year
+    const today = new Date();
+    const year = today.getFullYear(); // user selected year
 
     const startOfMonth = new Date(year, month - 1, 1);
     const endOfMonth = new Date(year, month, 0, 23, 59, 59, 999);
@@ -129,7 +130,8 @@ router.get("/exercise", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    const year = 2025; // user selected year
+    const today = new Date();
+    const year = today.getFullYear(); // user selected year
 
     const startOfMonth = new Date(year, month - 1, 1);
     const endOfMonth = new Date(year, month, 0, 23, 59, 59, 999);
@@ -214,7 +216,8 @@ router.get("/breakup", async (req, res) => {
   const userId = req.user.id;
 
   try {
-    const year = 2025; // user selected year
+    const today = new Date();
+    const year = today.getFullYear(); // user selected year
 
     const startOfMonth = new Date(year, month - 1, 1);
     const endOfMonth = new Date(year, month, 0, 23, 59, 59, 999);

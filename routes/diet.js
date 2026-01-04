@@ -109,6 +109,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.delete("/",  async (req, res) => {
+  try {
+    const userId = req.user.id;
+    await Diet.deleteOne({
+      userId
+    });
+    res.json("Diet plan reset successful");
+  } catch (err) {
+    res.status(500).send("Server error", err.message);
+  }
+});
+
 router.put("/", async (req, res) => {
   try {
     const {
