@@ -24,6 +24,14 @@ const userSchema = new mongoose.Schema({
     lastLogin: {
         type: Date,
         required: false
+    },
+    passwordResetToken: {
+        type: String,
+        required: false
+    },
+    passwordResetExpires: {
+        type: String,
+        required: false
     }
 }, {
     collection: 'users',

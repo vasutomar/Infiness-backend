@@ -1,16 +1,20 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 const router = express.Router();
-const authMiddleware = require("../middleware/authMiddleware");
 const dotenv = require("dotenv");
+const { randomBytes, createHash } = require("crypto");
+const { EmailClient } = require("@azure/communication-email");
 
 const winston = require("../utils/winston");
+
 const Diet = require("../models/Diet");
+const User = require("../models/User");
 const Workout = require("../models/Workout");
 
 dotenv.config();
+
+const emailClient = new EmailClient(process.env.AZURE_EMAIL_CONNECTION_STRING);
 
 /* -----HELPER FUNCTIONS-----*/
 function dateDiffInDays(a, b) {
@@ -152,6 +156,91 @@ router.post("/update/password", async (req, res) => {
   }
 });
 
+function generateOTP(length) {
+  const digits = "0123456789";
+  let OTP = "";
+  for (let i = 0; i < length; i++) {
+    OTP += digits[Math.floor(Math.random() * 10)];
+  }
+  return OTP;
+}
+
+router.post("/start-reset", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findOne({ _id: userId });
+    if (!user)
+      return res.status(400).json({ error: true, msg: "User not found" });
+
+    let email = user.email;
+    const resetToken = generateOTP(6);
+    const hashedToken = createHash("sha256").update(resetToken).digest("hex");
+
+    const emailMessage = {
+      senderAddress: process.env.AZURE_EMAIL_SENDER,
+      content: {
+        subject: "Reset Password",
+        plainText: "OTP for password reset",
+        html: `
+        <html>
+				<body>
+        <h1>
+        Please use OTP : ${resetToken} to reset your password
+        </h1>
+				</body>
+        </html>`,
+      },
+      recipients: {
+        to: [{ address: email }],
+      },
+    };
+
+    const poller = await emailClient.beginSend(emailMessage);
+    const result = await poller.pollUntilDone();
+
+    if (result.error) {
+      return res.status(500).json({ error: true, msg: "Error sending email." });
+    }
+
+    user.passwordResetToken = hashedToken;
+    user.passwordResetExpires = Date.now() + 15 * 60 * 1000;
+    await user.save();
+
+    res.json("Email sent");
+  } catch (err) {
+    res.status(500).send(`${err.message}`);
+  }
+});
+
+router.post("/reset", async (req, res) => {
+  const { code, password } = req.body;
+
+  try {
+    const userId = req.user.id;
+    const user = await User.findOne({ _id: userId });
+    if (!user)
+      return res.status(400).json({ error: true, msg: "User not found" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const resetToken = code;
+    const hashedToken = createHash("sha256").update(resetToken).digest("hex");
+
+    if (!(user.passwordResetToken == hashedToken)) {
+      return res.status(500).json({ error: true, msg: "Code did not match" });
+    }
+
+    user.password = hashedPassword;
+    user.passwordResetExpires = undefined;
+    user.passwordResetToken = undefined;
+
+    await user.save();
+
+    res.json("Password reset successful");
+  } catch (err) {
+    res.status(500).send(`${err.message}`);
+  }
+});
+
 router.delete("/", async (req, res) => {
   try {
     const userId = req.user.id;
@@ -161,27 +250,6 @@ router.delete("/", async (req, res) => {
     res.json("User deleted");
   } catch (err) {
     res.status(500).send(`Server error: ${err.message}`);
-  }
-});
-
-// Protected route example
-router.get("/me", authMiddleware, async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select("email");
-    res.json(user);
-  } catch (err) {
-    res.status(500).send("Server error");
-  }
-});
-
-// Protected route example
-router.get("/all", authMiddleware, async (req, res) => {
-  try {
-    const users = await User.find({ _id: { $ne: req.user.id } }).select("name");
-
-    res.json(users);
-  } catch (err) {
-    res.status(500).send("Server error");
   }
 });
 

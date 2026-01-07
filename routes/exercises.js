@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
     let exercises = await Exercises.find({});
     let returnObject = {};
 
-    ['chest', 'back', 'shoulders', 'arms', 'legs', 'abs'].forEach((e) => {
+    ['chest', 'back', 'shoulders', 'arms', 'legs', 'abs', 'cardio'].forEach((e) => {
       returnObject[e] = [...exercises].filter((ex => ex.muscleGroup == e));
     });
 
