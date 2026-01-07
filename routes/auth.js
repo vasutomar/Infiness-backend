@@ -166,13 +166,12 @@ function generateOTP(length) {
 }
 
 router.post("/start-reset", async (req, res) => {
+  const { email } = req.body;
   try {
-    const userId = req.user.id;
-    const user = await User.findOne({ _id: userId });
+    const user = await User.findOne({ email });
     if (!user)
       return res.status(400).json({ error: true, msg: "User not found" });
 
-    let email = user.email;
     const resetToken = generateOTP(6);
     const hashedToken = createHash("sha256").update(resetToken).digest("hex");
 
@@ -216,18 +215,17 @@ router.post("/reset", async (req, res) => {
   const { code, password } = req.body;
 
   try {
-    const userId = req.user.id;
-    const user = await User.findOne({ _id: userId });
-    if (!user)
-      return res.status(400).json({ error: true, msg: "User not found" });
-
     const hashedPassword = await bcrypt.hash(password, 10);
     const resetToken = code;
     const hashedToken = createHash("sha256").update(resetToken).digest("hex");
 
-    if (!(user.passwordResetToken == hashedToken)) {
-      return res.status(500).json({ error: true, msg: "Code did not match" });
-    }
+    const user = await User.findOne({
+      passwordResetToken: hashedToken,
+      passwordResetExpires: { $gt: Date.now() },
+    });
+
+    if (!user)
+      return res.status(400).json({ error: true, msg: "Incorrect or expired OTP" });
 
     user.password = hashedPassword;
     user.passwordResetExpires = undefined;

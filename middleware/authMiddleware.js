@@ -2,7 +2,14 @@ const jwt = require("jsonwebtoken");
 
 module.exports = function (req, res, next) {
   if (
-    ["login", "signup", "api/exercises/", "/feedback", "api/diet/questions"].some((endpoint) => {
+    [
+      "login",
+      "signup",
+      "api/exercises/",
+      "/feedback",
+      "api/diet/questions",
+      "reset",
+    ].some((endpoint) => {
       return req.url.includes(endpoint);
     })
   ) {
