@@ -141,16 +141,17 @@ router.post("/update/password", async (req, res) => {
         .status(400)
         .json({ error: true, msg: "Wrong current password" });
     const hashedPassword = await bcrypt.hash(toUpdate, 10);
-    await User.updateOne(
-      { userId },
+    const updatedUser = await User.findOneAndUpdate(
+      { _id: userId },
       {
         $set: {
           password: hashedPassword,
         },
-      }
+      },
+      { upsert: false, returnDocument: "after" }
     );
 
-    res.json("Password updated");
+    res.json(updatedUser);
   } catch (err) {
     res.status(500).send("Server error");
   }
