@@ -4,6 +4,11 @@ const OrganizerSchema = new mongoose.Schema({
   name: { type: String, required: true },
   contact: { type: Number, required: true },
   email: { type: String, required: true },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+    required: false,
+  },
 });
 
 const EventsSchema = new mongoose.Schema({
@@ -12,7 +17,7 @@ const EventsSchema = new mongoose.Schema({
     required: true,
   },
   description: {
-    type: Number,
+    type: String,
     required: true,
   },
   organizerDetails: {
@@ -23,6 +28,9 @@ const EventsSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  date: { type: Date, required: true },
+  duration: { type: Number, required: true },
+  isCancelled: { type: Boolean, required: true, default: false },
   location: {
     type: {
       type: String,
@@ -41,4 +49,5 @@ const EventsSchema = new mongoose.Schema({
   },
 });
 
+EventsSchema.index({ location: "2dsphere" });
 module.exports = mongoose.model("Events", EventsSchema);
