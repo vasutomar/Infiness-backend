@@ -14,6 +14,10 @@ router.get("/health", function (req, res) {
 
 router.get("/", async (req, res) => {
   let { latitude, longitude, distance } = req.query;
+  latitude = parseFloat(latitude);
+  longitude = parseFloat(longitude);
+  distance = parseInt(distance);
+
   try {
     let events = await Event.find({
       location: {
