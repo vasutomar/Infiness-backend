@@ -75,7 +75,9 @@ router.post("/signup", async (req, res) => {
       level: "error",
       message: `AUTH - SIGNUP : ${err.message}`,
     });
-    res.status(500).send(`Server Error : ${err.message}`);
+    return res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -121,7 +123,9 @@ router.post("/login", async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(500).send("Server error");
+    return res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -153,7 +157,9 @@ router.post("/update/password", async (req, res) => {
 
     res.json(updatedUser);
   } catch (err) {
-    res.status(500).send("Server error");
+    return res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -199,7 +205,9 @@ router.post("/start-reset", async (req, res) => {
     const result = await poller.pollUntilDone();
 
     if (result.error) {
-      return res.status(500).json({ error: true, msg: "Error sending email." });
+      return res
+        .status(500)
+        .json({ error: true, msg: `Internal server error ${err.message}` });
     }
 
     user.passwordResetToken = hashedToken;
@@ -208,7 +216,9 @@ router.post("/start-reset", async (req, res) => {
 
     res.json("Email sent");
   } catch (err) {
-    res.status(500).send(`${err.message}`);
+    return res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -226,7 +236,9 @@ router.post("/reset", async (req, res) => {
     });
 
     if (!user)
-      return res.status(400).json({ error: true, msg: "Incorrect or expired OTP" });
+      return res
+        .status(400)
+        .json({ error: true, msg: "Incorrect or expired OTP" });
 
     user.password = hashedPassword;
     user.passwordResetExpires = undefined;
@@ -236,7 +248,9 @@ router.post("/reset", async (req, res) => {
 
     res.json("Password reset successful");
   } catch (err) {
-    res.status(500).send(`${err.message}`);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -248,7 +262,9 @@ router.delete("/", async (req, res) => {
     await Diet.deleteMany({ userId });
     res.json("User deleted");
   } catch (err) {
-    res.status(500).send(`Server error: ${err.message}`);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 

@@ -32,9 +32,9 @@ const dietPlanSchema = {
             properties: {
               meal: { type: "string" },
               calories: { type: "number" },
-              protein: {type: "number"}
+              protein: { type: "number" },
             },
-            required: ["meal", "calories", "protein"]
+            required: ["meal", "calories", "protein"],
           },
           lunch: {
             type: "object",
@@ -42,9 +42,9 @@ const dietPlanSchema = {
             properties: {
               meal: { type: "string" },
               calories: { type: "number" },
-              protein: {type: "number"}
+              protein: { type: "number" },
             },
-            required: ["meal", "calories", "protein"]
+            required: ["meal", "calories", "protein"],
           },
           dinner: {
             type: "object",
@@ -52,26 +52,32 @@ const dietPlanSchema = {
             properties: {
               meal: { type: "string" },
               calories: { type: "number" },
-              protein: {type: "number"}
+              protein: { type: "number" },
             },
-            required: ["meal", "calories", "protein"]
+            required: ["meal", "calories", "protein"],
           },
           totalCalories: { type: "number" },
-          proteinIntake: { type: "number" }
+          proteinIntake: { type: "number" },
         },
-        required: ["day", "breakfast", "lunch", "dinner", "totalCalories", "proteinIntake"]
-      }
+        required: [
+          "day",
+          "breakfast",
+          "lunch",
+          "dinner",
+          "totalCalories",
+          "proteinIntake",
+        ],
+      },
     },
     tips: {
       type: "array",
       minItems: 3,
       maxItems: 7,
-      items: { type: "string" }
-    }
+      items: { type: "string" },
+    },
   },
-  required: ["week", "tips"]
+  required: ["week", "tips"],
 };
-
 
 router.get("/health", function (req, res) {
   res.json({
@@ -84,7 +90,9 @@ router.get("/questions", async (req, res) => {
     const response = await Question.find({});
     res.json(response);
   } catch (err) {
-    res.status(500).send("Server error", err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -105,19 +113,23 @@ router.get("/", async (req, res) => {
     }
     res.json(response);
   } catch (err) {
-    res.status(500).send("Server error", err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
-router.delete("/",  async (req, res) => {
+router.delete("/", async (req, res) => {
   try {
     const userId = req.user.id;
     await Diet.deleteOne({
-      userId
+      userId,
     });
     res.json("Diet plan reset successful");
   } catch (err) {
-    res.status(500).send("Server error", err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -157,7 +169,7 @@ router.put("/", async (req, res) => {
             type: "json_schema",
             name: "plan",
             schema: dietPlanSchema,
-            strict: true
+            strict: true,
           },
         },
       })
@@ -200,7 +212,9 @@ router.put("/", async (req, res) => {
     );
     res.json(response);
   } catch (err) {
-    res.status(500).send("Server error", err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 

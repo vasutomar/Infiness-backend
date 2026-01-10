@@ -121,7 +121,9 @@ router.get("/group", async (req, res) => {
 
     res.json(finalData);
   } catch (err) {
-    res.status(500).send(err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -207,7 +209,9 @@ router.get("/exercise", async (req, res) => {
 
     res.json(results);
   } catch (err) {
-    res.status(500).send(err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -303,7 +307,9 @@ router.get("/breakup", async (req, res) => {
     ];
     res.json(radarData);
   } catch (err) {
-    res.status(500).send(err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 module.exports = router;

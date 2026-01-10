@@ -39,7 +39,9 @@ router.get("/", async (req, res) => {
       res.json(freshWorkout);
     }
   } catch (err) {
-    res.status(500).send(err.message);
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -64,7 +66,9 @@ router.put("/", async (req, res) => {
     );
     res.json(updated);
   } catch (err) {
-    res.status(500).send("Server error");
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
@@ -98,10 +102,14 @@ router.post("/prefill", async (req, res) => {
       );
       res.json(updated);
     } else {
-      res.status(500).send(`No previous record found`);
+      res
+        .status(500)
+        .json({ error: true, msg: `Internal server error ${err.message}` });
     }
   } catch (err) {
-    res.status(500).send("Server error");
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 

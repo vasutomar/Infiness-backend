@@ -16,16 +16,16 @@ router.put("/feedback", async (req, res) => {
   const { feedback } = req.body;
 
   try {
-    await Feedback.insertOne(
-      {
-        feedback
-      }
-    );
+    await Feedback.insertOne({
+      feedback,
+    });
     res.json({
-        msg: "Feedback Submitted!"
+      msg: "Feedback Submitted!",
     });
   } catch (err) {
-    res.status(500).send("Server error");
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 

@@ -12,17 +12,21 @@ router.get("/health", function (req, res) {
 });
 
 router.get("/", async (req, res) => {
+  let { latitude, longitude, distance } = req.query;
   try {
-    let exercises = await Exercises.find({});
-    let returnObject = {};
+    let events = await Event.find({
+      location: {
+        $near: {
+          $geometry: {
+            type: "Point",
+            coordinates: [longitude, latitude],
+          },
+          $maxDistance: distance,
+        },
+      },
+    });
 
-    ["chest", "back", "shoulders", "arms", "legs", "abs", "cardio"].forEach(
-      (e) => {
-        returnObject[e] = [...exercises].filter((ex) => ex.muscleGroup == e);
-      }
-    );
-
-    res.json(returnObject);
+    res.json(events);
   } catch (err) {
     res
       .status(500)
