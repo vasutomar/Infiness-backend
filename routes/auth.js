@@ -32,6 +32,18 @@ router.get("/health", function (req, res) {
   });
 });
 
+router.get("/profile", async function (req, res) {
+  try {
+    let userId = req.user.id;
+    let userData = await User.findById(userId);
+    res.json(userData);
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
 // Signup route
 router.post("/signup", async (req, res) => {
   winston.info("AUTH - SIGNUP : Entered function");
@@ -120,6 +132,7 @@ router.post("/login", async (req, res) => {
         name: user.name,
         email: user.email,
         streak: user.streak,
+        eventPlan: user.eventPlan,
       },
     });
   } catch (err) {

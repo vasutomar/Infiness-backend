@@ -10,6 +10,7 @@ const graphRoutes = require("./routes/graph");
 const webSupport = require("./routes/web-support.js");
 const diet = require("./routes/diet.js");
 const event = require("./routes/event.js");
+const payments = require("./routes/payments.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -28,6 +29,7 @@ app.use("/api/graph", graphRoutes);
 app.use("/api/web-support", webSupport);
 app.use("/api/diet", diet);
 app.use("/api/events", event);
+app.use("/api/payment", payments);
 
 module.exports = app;
 const port = process.env.PORT;
