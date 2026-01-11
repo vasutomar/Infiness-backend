@@ -4,6 +4,7 @@ const router = express.Router();
 const dotenv = require("dotenv");
 const Question = require("../models/Question");
 const Diet = require("../models/Diet");
+const winston = require("../utils/winston");
 
 dotenv.config();
 
@@ -80,6 +81,7 @@ const dietPlanSchema = {
 };
 
 router.get("/health", function (req, res) {
+  winston.info("Diet health check endpoint called");
   res.json({
     status: "Running",
   });
@@ -87,9 +89,16 @@ router.get("/health", function (req, res) {
 
 router.get("/questions", async (req, res) => {
   try {
+    winston.info("Fetching diet questions");
     const response = await Question.find({});
+    winston.info(
+      `Diet questions fetched successfully, count: ${response.length}`
+    );
     res.json(response);
   } catch (err) {
+    winston.error(`Error fetching diet questions: ${err.message}`, {
+      error: err.stack,
+    });
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
@@ -99,20 +108,28 @@ router.get("/questions", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const userId = req.user.id;
+    winston.info(`Fetching diet plan for user: ${userId}`);
     const response = await Diet.findOne({
       userId,
     });
     if (!response) {
+      winston.info(`No diet plan found for user: ${userId}`);
       res.json(null);
       return;
     } else if (response.planCreated == false) {
+      winston.info(`Diet plan creation in progress for user: ${userId}`);
       res.json({
         planCreated: false,
         msg: "Plan creation is in progress",
       });
     }
+    winston.info(`Diet plan retrieved successfully for user: ${userId}`);
     res.json(response);
   } catch (err) {
+    winston.error(
+      `Error fetching diet plan for user ${req.user.id}: ${err.message}`,
+      { error: err.stack }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
@@ -122,11 +139,17 @@ router.get("/", async (req, res) => {
 router.delete("/", async (req, res) => {
   try {
     const userId = req.user.id;
+    winston.info(`Deleting diet plan for user: ${userId}`);
     await Diet.deleteOne({
       userId,
     });
+    winston.info(`Diet plan deleted successfully for user: ${userId}`);
     res.json("Diet plan reset successful");
   } catch (err) {
+    winston.error(
+      `Error deleting diet plan for user ${req.user.id}: ${err.message}`,
+      { error: err.stack }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
@@ -148,6 +171,16 @@ router.put("/", async (req, res) => {
     } = req.body;
     const userId = req.user.id;
 
+    winston.info(`Creating/updating diet plan for user: ${userId}`, {
+      age,
+      height,
+      sex,
+      weight,
+      goal: goal?.toString(),
+      diet: diet?.toString(),
+      cuisine: cuisine?.toString(),
+    });
+
     // Generating OpenAPI response
     let openAPI_input = `Generate a weekly diet plan for me.`;
     if (height) openAPI_input += ` I am ${height} cms tall.`;
@@ -159,6 +192,10 @@ router.put("/", async (req, res) => {
       openAPI_input += `  I have following restrictions: ${restriction}.`;
     if (preference) openAPI_input += ` I prefer: ${preference}.`;
     openAPI_input += `. only return JSON and no extra text.`;
+
+    winston.info(
+      `Sending diet plan generation request to OpenAI for user: ${userId}`
+    );
 
     client.responses
       .create({
@@ -175,6 +212,7 @@ router.put("/", async (req, res) => {
       })
       .then(async (res) => {
         try {
+          winston.info(`Received response from OpenAI for user: ${userId}`);
           let parsedResponse = JSON.parse(res.output_text);
           await Diet.findOneAndUpdate(
             {
@@ -185,9 +223,20 @@ router.put("/", async (req, res) => {
               planCreated: true,
             }
           );
+          winston.info(
+            `Diet plan generated and saved successfully for user: ${userId}`
+          );
         } catch (err) {
-          console.log(err);
+          winston.error(
+            `Error processing OpenAI response for user ${userId}: ${err.message}`,
+            { error: err.stack }
+          );
         }
+      })
+      .catch((err) => {
+        winston.error(`OpenAI API error for user ${userId}: ${err.message}`, {
+          error: err.stack,
+        });
       });
 
     const response = await Diet.findOneAndUpdate(
@@ -210,8 +259,16 @@ router.put("/", async (req, res) => {
       },
       { upsert: true, returnDocument: "after" }
     );
+
+    winston.info(
+      `Diet plan placeholder created for user: ${userId}, awaiting AI generation`
+    );
     res.json(response);
   } catch (err) {
+    winston.error(
+      `Error creating diet plan for user ${req.user.id}: ${err.message}`,
+      { error: err.stack }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });

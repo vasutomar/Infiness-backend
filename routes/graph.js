@@ -9,6 +9,7 @@ const { Types, Mongoose } = require("mongoose");
 dotenv.config();
 
 router.get("/health", function (req, res) {
+  winston.info("Workout health check endpoint called");
   res.json({
     status: "Running",
   });
@@ -19,11 +20,19 @@ router.get("/group", async (req, res) => {
   const userId = req.user.id;
 
   try {
+    winston.info(
+      `Fetching workout group data for user: ${userId}, group: ${group}, month: ${month}`
+    );
+
     const today = new Date();
     const year = today.getFullYear(); // user selected year
 
     const startOfMonth = new Date(year, month - 1, 1);
     const endOfMonth = new Date(year, month, 0, 23, 59, 59, 999);
+
+    winston.info(
+      `Date range: ${startOfMonth.toISOString()} to ${endOfMonth.toISOString()}`
+    );
 
     const allTracked = await Workout.aggregate([
       {
@@ -43,6 +52,10 @@ router.get("/group", async (req, res) => {
       },
     ]);
 
+    winston.info(
+      `Found ${allTracked.length} tracked workout days for group: ${group}`
+    );
+
     const unique = new Set();
     allTracked.forEach((data) => {
       data.workout.forEach((w) => {
@@ -51,6 +64,9 @@ router.get("/group", async (req, res) => {
     });
 
     const exercises = Array.from(unique);
+    winston.info(
+      `Processing ${exercises.length} unique exercises: ${exercises.join(", ")}`
+    );
 
     const titleQuery = `workout.${group}.title`;
     let finalData = {};
@@ -119,8 +135,19 @@ router.get("/group", async (req, res) => {
       })
     );
 
+    winston.info(
+      `Successfully aggregated workout data for ${exercises.length} exercises in group: ${group}`
+    );
     res.json(finalData);
   } catch (err) {
+    winston.error(
+      `Error fetching workout group data for user ${userId}: ${err.message}`,
+      {
+        error: err.stack,
+        group,
+        month,
+      }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
@@ -132,6 +159,10 @@ router.get("/exercise", async (req, res) => {
   const userId = req.user.id;
 
   try {
+    winston.info(
+      `Fetching exercise data for user: ${userId}, group: ${group}, exercise: ${exercise}, month: ${month}`
+    );
+
     const today = new Date();
     const year = today.getFullYear(); // user selected year
 
@@ -207,8 +238,20 @@ router.get("/exercise", async (req, res) => {
       },
     ]);
 
+    winston.info(
+      `Retrieved ${results.length} data points for exercise: ${exercise}`
+    );
     res.json(results);
   } catch (err) {
+    winston.error(
+      `Error fetching exercise data for user ${userId}: ${err.message}`,
+      {
+        error: err.stack,
+        group,
+        exercise,
+        month,
+      }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
@@ -220,6 +263,10 @@ router.get("/breakup", async (req, res) => {
   const userId = req.user.id;
 
   try {
+    winston.info(
+      `Fetching workout breakup for user: ${userId}, month: ${month}`
+    );
+
     const today = new Date();
     const year = today.getFullYear(); // user selected year
 
@@ -246,6 +293,8 @@ router.get("/breakup", async (req, res) => {
     ]);
 
     const totalRecords = results.length;
+    winston.info(`Found ${totalRecords} workout days for breakup analysis`);
+
     const counts = {
       chest: 0,
       back: 0,
@@ -261,6 +310,11 @@ router.get("/breakup", async (req, res) => {
           results[i].workout[key] && (results[i].workout[key].length ? 1 : 0);
       });
     }
+
+    // Log muscle group distribution
+    const distribution = keys.map((key) => `${key}: ${counts[key]}`).join(", ");
+    winston.info(`Workout distribution - ${distribution}`);
+
     const radarData = [
       {
         title: "Chest",
@@ -305,11 +359,21 @@ router.get("/breakup", async (req, res) => {
         fullMark: totalRecords,
       },
     ];
+
+    winston.info(`Successfully generated radar data for workout breakup`);
     res.json(radarData);
   } catch (err) {
+    winston.error(
+      `Error fetching workout breakup for user ${userId}: ${err.message}`,
+      {
+        error: err.stack,
+        month,
+      }
+    );
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
+
 module.exports = router;
