@@ -87,6 +87,28 @@ router.get("/my", async (req, res) => {
   }
 });
 
+router.get("/organizing", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    winston.info(`Fetching organizing events for user: ${userId}`);
+    let orgEvents = await Event.find({
+      "organizerDetails.userId": userId,
+    });
+    winston.info(
+      `Found ${orgEvents.length} organizing events for user: ${userId}`
+    );
+    res.json(orgEvents);
+  } catch (err) {
+    winston.error(
+      `Error fetching organizing events for user ${req.user.id}: ${err.message}`,
+      { error: err.stack }
+    );
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const userId = req.user.id;

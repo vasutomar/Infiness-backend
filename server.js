@@ -11,6 +11,7 @@ const webSupport = require("./routes/web-support.js");
 const diet = require("./routes/diet.js");
 const event = require("./routes/event.js");
 const payments = require("./routes/payments.js");
+const maps = require("./routes/maps.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -21,20 +22,6 @@ app.use(cors());
 app.use(express.json());
 
 app.use(authMiddleware);
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://your-frontend-domain.com");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header("Access-Control-Allow-Headers", "Authorization, Content-Type");
-//   res.header(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-//   );
-
-//   if (req.method === "OPTIONS") {
-//     return res.sendStatus(204); // Azure needs this
-//   }
-//   next();
-// });
 
 app.use("/api/auth", authRoutes);
 app.use("/api/workout", workoutRoutes);
@@ -44,6 +31,7 @@ app.use("/api/web-support", webSupport);
 app.use("/api/diet", diet);
 app.use("/api/events", event);
 app.use("/api/payment", payments);
+app.use("/api/maps", maps);
 
 module.exports = app;
 const port = process.env.PORT;

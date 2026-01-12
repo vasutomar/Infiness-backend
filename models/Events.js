@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const OrganizerSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  contact: { type: Number, required: true },
+  contact: { type: Number, required: false },
   email: { type: String, required: true },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -32,7 +32,7 @@ const EventsSchema = new mongoose.Schema({
   duration: { type: Number, required: true },
   type: {
     type: String,
-    enum: ["wellness", "sport", "running", "strength"],
+    enum: ["Wellness", "Sport", "Running", "Strength"],
     required: true,
   },
   isCancelled: { type: Boolean, required: true, default: false },
@@ -45,6 +45,16 @@ const EventsSchema = new mongoose.Schema({
     coordinates: {
       type: [Number], // [lng, lat]
       required: true,
+    },
+    viewport: {
+      northeast: {
+        type: [Number], // [lng, lat]
+        required: true,
+      },
+      southwest: {
+        type: [Number], // [lng, lat]
+        required: true,
+      },
     },
   },
   participants: {
