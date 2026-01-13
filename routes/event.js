@@ -19,11 +19,14 @@ router.get("/", async (req, res) => {
   longitude = parseFloat(longitude);
   distance = parseInt(distance);
 
+  let userId = req.user.id;
+
   try {
     winston.info(
       `Fetching events near location: lat=${latitude}, lon=${longitude}, distance=${distance}m`
     );
     let events = await Event.find({
+      participants: { $nin: [userId] },
       location: {
         $near: {
           $geometry: {
@@ -195,6 +198,80 @@ router.post("/cancel", async (req, res) => {
   } catch (err) {
     winston.error(
       `Error cancelling event ${req.body._id} for user ${req.user.id}: ${err.message}`,
+      {
+        error: err.stack,
+      }
+    );
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.post("/register", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const data = req.body;
+    winston.info(`Registering for event: ${data._id} by user: ${userId}`);
+    let registeredEvent = await Event.findOneAndUpdate(
+      {
+        _id: data._id,
+      },
+      { $push: { participants: userId } },
+      { upsert: false, returnDocument: "after" }
+    );
+
+    if (!registeredEvent) {
+      winston.warn(
+        `Failed to registered - event ${data._id} not found or not owned by user: ${userId}`
+      );
+    } else {
+      winston.info(`Registered successfully: ${data._id} by user: ${userId}`);
+    }
+
+    res.json(registeredEvent);
+  } catch (err) {
+    winston.error(
+      `Error registering for event ${req.body._id} for user ${req.user.id}: ${err.message}`,
+      {
+        error: err.stack,
+      }
+    );
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.post("/cancel-register", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const data = req.body;
+    winston.info(
+      `Cancelling registering for event: ${data._id} by user: ${userId}`
+    );
+    let registeredEvent = await Event.findOneAndUpdate(
+      {
+        _id: data._id,
+      },
+      { $pull: { participants: userId } },
+      { upsert: false, returnDocument: "after" }
+    );
+
+    if (!registeredEvent) {
+      winston.warn(
+        `Failed to cancel registeration - event ${data._id} not found or not owned by user: ${userId}`
+      );
+    } else {
+      winston.info(
+        `Registion cancelled successfully: ${data._id} by user: ${userId}`
+      );
+    }
+
+    res.json(registeredEvent);
+  } catch (err) {
+    winston.error(
+      `Error cancelling registeration for event ${req.body._id} for user ${req.user.id}: ${err.message}`,
       {
         error: err.stack,
       }
