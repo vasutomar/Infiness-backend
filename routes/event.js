@@ -1,9 +1,9 @@
 const express = require("express");
 const Event = require("../models/Events");
+const User = require("../models/User");
 const winston = require("../utils/winston");
 const router = express.Router();
 const dotenv = require("dotenv");
-
 dotenv.config();
 
 router.get("/health", function (req, res) {
@@ -76,6 +76,7 @@ router.get("/my", async (req, res) => {
     winston.info(`Fetching events for user: ${userId}`);
     let myEvents = await Event.find({
       participants: userId,
+      isCancelled: false,
     });
     winston.info(`Found ${myEvents.length} events for user: ${userId}`);
     res.json(myEvents);
@@ -96,11 +97,44 @@ router.get("/organizing", async (req, res) => {
     winston.info(`Fetching organizing events for user: ${userId}`);
     let orgEvents = await Event.find({
       "organizerDetails.userId": userId,
+      isCancelled: false,
     });
     winston.info(
       `Found ${orgEvents.length} organizing events for user: ${userId}`
     );
     res.json(orgEvents);
+  } catch (err) {
+    winston.error(
+      `Error fetching organizing events for user ${req.user.id}: ${err.message}`,
+      { error: err.stack }
+    );
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.get("/participants/:eventId", async (req, res) => {
+  try {
+    const { eventId } = req.params;
+    winston.info(`Fetching participants`);
+    let eventData = await Event.findOne({
+      _id: eventId,
+    });
+    let participants = eventData.participants;
+    let participantData = await User.find(
+      {
+        _id: {
+          $in: participants,
+        },
+      },
+      {
+        name: 1,
+        email: 1,
+        _id: 0,
+      }
+    );
+    res.json(participantData);
   } catch (err) {
     winston.error(
       `Error fetching organizing events for user ${req.user.id}: ${err.message}`,
