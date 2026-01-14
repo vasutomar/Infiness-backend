@@ -247,6 +247,12 @@ router.post("/register", async (req, res) => {
     const userId = req.user.id;
     const data = req.body;
     winston.info(`Registering for event: ${data._id} by user: ${userId}`);
+    let event = await Event.findOne({
+      _id: data._id,
+    });
+    if (event.participants.length >= event.participantLimit) {
+      res.status(403).json({ error: true, msg: `Registration is full.` });
+    }
     let registeredEvent = await Event.findOneAndUpdate(
       {
         _id: data._id,

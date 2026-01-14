@@ -62,6 +62,7 @@ const EventsSchema = new mongoose.Schema({
     ref: "users",
     required: false,
   },
+  participantLimit: { type: Number, required: true, default: 10 },
 });
 
 EventsSchema.index({ location: "2dsphere" });
