@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "migrate:exercises": "node migrations/migrate-insert-exercises.js",
+    "migrate:plans": "node migrations/migrate-plans.js",
     "build": "echo 'Build step complete'",
     "start": "node server.js"
   },

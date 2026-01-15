@@ -1,6 +1,7 @@
 const express = require("express");
 const Event = require("../models/Events");
 const User = require("../models/User");
+const EventPlans = require("../models/EventPlans");
 const winston = require("../utils/winston");
 const router = express.Router();
 const dotenv = require("dotenv");
@@ -182,6 +183,26 @@ router.post("/", async (req, res) => {
         eventType: data.type,
       });
       delete data._id;
+      const userData = await User.findOne({
+        _id: userId,
+      });
+      let event = userData.eventPlan;
+      const eventPlanDetails = await EventPlans.find({
+        name: event,
+      });
+      data.participantLimit = eventPlanDetails.participants;
+      const activeUserEvents = await Event.countDocuments({
+        "organizerDetails.userId": userId,
+        isCancelled: false,
+      });
+      if (activeUserEvents >= eventPlanDetails.events) {
+        return res
+          .status(403)
+          .json({
+            error: true,
+            msg: `Cannot create more plans, please contact support`,
+          });
+      }
       event = await Event.create({
         ...data,
       });
@@ -251,7 +272,9 @@ router.post("/register", async (req, res) => {
       _id: data._id,
     });
     if (event.participants.length >= event.participantLimit) {
-      res.status(403).json({ error: true, msg: `Registration is full.` });
+      return res
+        .status(403)
+        .json({ error: true, msg: `Registration is full.` });
     }
     let registeredEvent = await Event.findOneAndUpdate(
       {
@@ -316,6 +339,23 @@ router.post("/cancel-register", async (req, res) => {
         error: err.stack,
       }
     );
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.get("/plans", async (req, res) => {
+  try {
+    const userId = req.user.id;
+    winston.info(`Starting plan fetch by user ${userId}`);
+    let plans = await EventPlans.find({});
+    winston.info(`Fetched plans successfully`);
+    res.json(plans);
+  } catch (err) {
+    winston.error(`Error fetching plans`, {
+      error: err.stack,
+    });
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
