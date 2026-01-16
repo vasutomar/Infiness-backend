@@ -11,9 +11,15 @@ const OrganizerSchema = new mongoose.Schema({
   },
 });
 
+const TimeSchema = new mongoose.Schema({
+  hour: { type: Number, required: true },
+  min: { type: Number, required: true },
+  period: { type: String, enum: ["AM", "PM"], required: true },
+});
+
 const StartStopSchema = new mongoose.Schema({
-  start: { type: Number, required: true, default: 9 },
-  end: { type: Number, required: true, default: 9 },
+  start: { type: TimeSchema, required: true },
+  end: { type: TimeSchema, required: true },
 });
 
 const EventsSchema = new mongoose.Schema({
@@ -64,7 +70,7 @@ const EventsSchema = new mongoose.Schema({
   },
   timings: {
     type: StartStopSchema,
-    required: false,
+    required: true,
   },
   participants: {
     type: [mongoose.Schema.Types.ObjectId],

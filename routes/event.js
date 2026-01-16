@@ -176,6 +176,7 @@ router.post("/", async (req, res) => {
           .json({ error: "Event not found or not owned by user" });
       }
       winston.info(`Event updated successfully: ${id} by user: ${userId}`);
+      res.json(event);
     } else {
       // CREATE
       winston.info(`Creating new event for user: ${userId}`, {
@@ -187,7 +188,7 @@ router.post("/", async (req, res) => {
         _id: userId,
       });
       let event = userData.eventPlan;
-      const eventPlanDetails = await EventPlans.find({
+      const eventPlanDetails = await EventPlans.findOne({
         name: event,
       });
       data.participantLimit = eventPlanDetails.participants;
@@ -207,8 +208,8 @@ router.post("/", async (req, res) => {
       winston.info(
         `Event created successfully: ${event._id} by user: ${userId}`
       );
+      res.json(event);
     }
-    res.json(event);
   } catch (err) {
     winston.error(
       `Error creating/updating event for user ${req.user.id}: ${err.message}`,
