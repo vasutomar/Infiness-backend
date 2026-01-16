@@ -196,12 +196,10 @@ router.post("/", async (req, res) => {
         isCancelled: false,
       });
       if (activeUserEvents >= eventPlanDetails.events) {
-        return res
-          .status(403)
-          .json({
-            error: true,
-            msg: `Cannot create more plans, please contact support`,
-          });
+        return res.status(403).json({
+          error: true,
+          msg: `Cannot create more plans, please contact support`,
+        });
       }
       event = await Event.create({
         ...data,
@@ -359,6 +357,23 @@ router.get("/plans", async (req, res) => {
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.get("/static-map", async (req, res) => {
+  try {
+    const { lat, lng, neLat, neLng, swLat, swLng } = req.query;
+
+    const url =
+      `https://maps.googleapis.com/maps/api/staticmap` +
+      `?size=600x300` +
+      `&markers=color:red|${lat},${lng}` +
+      `&visible=${neLat},${neLng}|${swLat},${swLng}` +
+      `&key=${process.env.GOOGLE_MAPS_KEY}`;
+
+    res.json({ url });
+  } catch (e) {
+    res.status(500).json({ error: "Map generation failed" });
   }
 });
 

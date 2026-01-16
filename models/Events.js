@@ -11,6 +11,11 @@ const OrganizerSchema = new mongoose.Schema({
   },
 });
 
+const StartStopSchema = new mongoose.Schema({
+  start: { type: Number, required: true, default: 9 },
+  end: { type: Number, required: true, default: 9 },
+});
+
 const EventsSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -56,6 +61,10 @@ const EventsSchema = new mongoose.Schema({
         required: true,
       },
     },
+  },
+  timings: {
+    type: StartStopSchema,
+    required: true,
   },
   participants: {
     type: [mongoose.Schema.Types.ObjectId],
