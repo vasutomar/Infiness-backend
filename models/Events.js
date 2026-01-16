@@ -64,7 +64,7 @@ const EventsSchema = new mongoose.Schema({
   },
   timings: {
     type: StartStopSchema,
-    required: true,
+    required: false,
   },
   participants: {
     type: [mongoose.Schema.Types.ObjectId],
