@@ -1,5 +1,7 @@
 const express = require("express");
 const Exercises = require("../models/Exercise");
+const Onboarding = require("../models/Onboarding");
+
 const winston = require("../utils/winston");
 const router = express.Router();
 const dotenv = require("dotenv");
@@ -42,6 +44,25 @@ router.get("/", async (req, res) => {
     winston.info(`Exercises grouped by muscle groups - ${distribution}`);
 
     res.json(returnObject);
+  } catch (err) {
+    winston.error(`Error fetching exercises: ${err.message}`, {
+      error: err.stack,
+    });
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.get("/onboarding", async (req, res) => {
+  try {
+    winston.info("Fetching onboarding data");
+    let onboarding = await Onboarding.find({});
+    winston.info(
+      `Retrieved ${onboarding.length} total onboarding from database`,
+    );
+
+    res.json(onboarding);
   } catch (err) {
     winston.error(`Error fetching exercises: ${err.message}`, {
       error: err.stack,

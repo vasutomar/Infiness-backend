@@ -6,6 +6,7 @@
   "scripts": {
     "migrate:exercises": "node migrations/migrate-insert-exercises.js",
     "migrate:plans": "node migrations/migrate-plans.js",
+    "migrate:onboarding": "node migrations/migrate-onboarding.js",
     "build": "echo 'Build step complete'",
     "start": "node server.js"
   },
