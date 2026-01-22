@@ -119,7 +119,7 @@ router.post("/login", async (req, res) => {
           streak: newStreak,
           lastLogin: today,
         },
-      }
+      },
     );
 
     winston.info(`User logged in successfully: ${email}, Streak: ${newStreak}`);
@@ -163,7 +163,7 @@ router.post("/update/password", async (req, res) => {
     const isMatch = await bcrypt.compare(current, user.password);
     if (!isMatch) {
       winston.warn(
-        `Password update failed - wrong current password for user: ${userId}`
+        `Password update failed - wrong current password for user: ${userId}`,
       );
       return res
         .status(400)
@@ -177,7 +177,7 @@ router.post("/update/password", async (req, res) => {
           password: hashedPassword,
         },
       },
-      { upsert: false, returnDocument: "after" }
+      { upsert: false, returnDocument: "after" },
     );
 
     winston.info(`Password updated successfully for user: ${userId}`);
@@ -185,7 +185,7 @@ router.post("/update/password", async (req, res) => {
   } catch (err) {
     winston.error(
       `Password update error for user ${req.user.id}: ${err.message}`,
-      { error: err.stack }
+      { error: err.stack },
     );
     return res
       .status(500)
@@ -292,6 +292,136 @@ router.post("/reset", async (req, res) => {
     res.json("Password reset successful");
   } catch (err) {
     winston.error(`Password reset error: ${err.message}`, { error: err.stack });
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.post("/start-verify", async (req, res) => {
+  let userId = req.user.id;
+  try {
+    winston.info(`Email verification requested for email: ${userId}`);
+    const user = await User.findById(userId);
+    let email = user.email;
+    if (!user) {
+      winston.warn(`Email verification failed - user not found: ${userId}`);
+      return res.status(400).json({ error: true, msg: "User not found" });
+    }
+
+    const token = generateOTP(6);
+    const hashedToken = createHash("sha256").update(token).digest("hex");
+
+    const emailMessage = {
+      senderAddress: process.env.AZURE_EMAIL_SENDER,
+      content: {
+        subject: "Reset Password",
+        plainText: "OTP for Email verification",
+        html: `
+        <html>
+				<body>
+        <h1>
+        Please use OTP : ${token} to verify email
+        </h1>
+				</body>
+        </html>`,
+      },
+      recipients: {
+        to: [{ address: email }],
+      },
+    };
+
+    winston.info(`Sending email verification email to: ${email}`);
+    const poller = await emailClient.beginSend(emailMessage);
+    const result = await poller.pollUntilDone();
+
+    if (result.error) {
+      winston.error(`Failed to send reset email to ${email}: ${result.error}`);
+      return res
+        .status(500)
+        .json({ error: true, msg: `Internal server error ${err.message}` });
+    }
+
+    user.emailVerificationToken = hashedToken;
+    user.emailVerificationExpires = Date.now() + 15 * 60 * 1000;
+    await user.save();
+
+    winston.info(`Email verification email sent successfully to: ${email}`);
+    res.json("Email sent");
+  } catch (err) {
+    winston.error(`Email verification error for ${email}: ${err.message}`, {
+      error: err.stack,
+    });
+    return res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.post("/cancel-verify", async (req, res) => {
+  let userId = req.user.id;
+
+  try {
+    winston.info(`Email verification cancel attempt`);
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      winston.warn(`Email verification failed - User not found`);
+      return res.status(400).json({ error: true, msg: "User not found" });
+    }
+
+    user.emailVerificationExpires = undefined;
+    user.emailVerificationToken = undefined;
+
+    await user.save();
+
+    winston.info(
+      `Email verification cancel successful for user: ${user.email}`,
+    );
+    res.json("Email verification cancel successful");
+  } catch (err) {
+    winston.error(`Email verification cancel error: ${err.message}`, {
+      error: err.stack,
+    });
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
+  }
+});
+
+router.post("/verify-email", async (req, res) => {
+  const { code } = req.body;
+
+  try {
+    winston.info(`Email verification attempt with OTP code`);
+    const resetToken = code;
+    const hashedToken = createHash("sha256").update(resetToken).digest("hex");
+
+    const user = await User.findOne({
+      emailVerificationToken: hashedToken,
+      emailVerificationExpires: { $gt: Date.now() },
+    });
+
+    if (!user) {
+      winston.warn(`Email verification failed - incorrect or expired OTP`);
+      return res
+        .status(400)
+        .json({ error: true, msg: "Incorrect or expired OTP" });
+    }
+
+    user.isEmailVerified = true;
+    user.emailVerificationExpires = undefined;
+    user.emailVerificationToken = undefined;
+
+    await user.save();
+
+    winston.info(`Email verification successful for user: ${user.email}`);
+    res.json("Email verification successful");
+  } catch (err) {
+    winston.error(`Email verification error: ${err.message}`, {
+      error: err.stack,
+    });
     res
       .status(500)
       .json({ error: true, msg: `Internal server error ${err.message}` });

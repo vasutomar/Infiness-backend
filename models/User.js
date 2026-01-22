@@ -40,11 +40,24 @@ const userSchema = new mongoose.Schema(
       required: false,
       default: "Free",
     },
+    isEmailVerified: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    emailVerificationToken: {
+      type: String,
+      required: false,
+    },
+    emailVerificationExpires: {
+      type: String,
+      required: false,
+    },
   },
   {
     collection: "users",
     timestamps: true,
-  }
+  },
 );
 
 module.exports = mongoose.model("User", userSchema);
