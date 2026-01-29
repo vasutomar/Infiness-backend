@@ -1,0 +1,2168 @@
+[
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b745e"
+    },
+    "muscleGroup": "chest",
+    "title": "Barbell Bench Press",
+    "description": "Compound chest press using barbell.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b745f"
+    },
+    "muscleGroup": "chest",
+    "title": "Incline Dumbbell Press",
+    "description": "Press dumbbells on incline bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7460"
+    },
+    "muscleGroup": "chest",
+    "title": "Decline Bench Press",
+    "description": "Chest press on decline bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7461"
+    },
+    "muscleGroup": "chest",
+    "title": "Push-Ups",
+    "description": "Bodyweight chest pressing movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Variation",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7462"
+    },
+    "muscleGroup": "chest",
+    "title": "Cable Chest Fly",
+    "description": "Cable fly isolating chest muscles.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7463"
+    },
+    "muscleGroup": "chest",
+    "title": "Dumbbell Chest Fly",
+    "description": "Fly motion with dumbbells on bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7464"
+    },
+    "muscleGroup": "chest",
+    "title": "Chest Press Machine",
+    "description": "Machine-guided chest pressing motion.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7465"
+    },
+    "muscleGroup": "chest",
+    "title": "Incline Bench Press",
+    "description": "Barbell press on incline bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7466"
+    },
+    "muscleGroup": "chest",
+    "title": "Dips",
+    "description": "Chest and triceps bodyweight dip.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Added Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7467"
+    },
+    "muscleGroup": "chest",
+    "title": "Pec Deck Machine",
+    "description": "Machine chest fly for isolation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7468"
+    },
+    "muscleGroup": "back",
+    "title": "Deadlift",
+    "description": "Full posterior chain strength lift.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7469"
+    },
+    "muscleGroup": "back",
+    "title": "Pull-Ups",
+    "description": "Bodyweight pull targeting lats.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Added Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746a"
+    },
+    "muscleGroup": "back",
+    "title": "Lat Pulldown",
+    "description": "Cable pull targeting lats.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746b"
+    },
+    "muscleGroup": "back",
+    "title": "Barbell Bent-Over Row",
+    "description": "Row barbell to torso for back.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746c"
+    },
+    "muscleGroup": "back",
+    "title": "Seated Cable Row",
+    "description": "Seated cable pull for mid-back.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746d"
+    },
+    "muscleGroup": "back",
+    "title": "T-Bar Row",
+    "description": "Heavy row variation for thickness.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746e"
+    },
+    "muscleGroup": "back",
+    "title": "Dumbbell Row",
+    "description": "Single-arm dumbbell back row.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b746f"
+    },
+    "muscleGroup": "back",
+    "title": "Back Extension",
+    "description": "Lower-back extension exercise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Hold Time (sec)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7470"
+    },
+    "muscleGroup": "back",
+    "title": "Face Pull",
+    "description": "Rear delt and trap cable pull.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7471"
+    },
+    "muscleGroup": "back",
+    "title": "Shrugs",
+    "description": "Trap-building shoulder shrug movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7472"
+    },
+    "title": "Overhead Barbell Press",
+    "description": "Vertical barbell shoulder press.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7473"
+    },
+    "title": "Seated Dumbbell Press",
+    "description": "Seated dumbbell shoulder press.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7474"
+    },
+    "title": "Lateral Raise",
+    "description": "Side raise targeting delts.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7475"
+    },
+    "title": "Front Raise",
+    "description": "Raise weight forward for delts.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7476"
+    },
+    "title": "Rear Delt Fly",
+    "description": "Rear shoulder fly movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7477"
+    },
+    "title": "Arnold Press",
+    "description": "Rotational dumbbell press variation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7478"
+    },
+    "title": "Upright Row",
+    "description": "Vertical pull for traps and delts.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7479"
+    },
+    "title": "Machine Shoulder Press",
+    "description": "Machine-guided overhead press.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747a"
+    },
+    "title": "Cable Lateral Raise",
+    "description": "Cable version of side raise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747b"
+    },
+    "title": "Handstand Push-Ups",
+    "description": "Bodyweight vertical pressing exercise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Assistance",
+      "values": [0]
+    },
+    "muscleGroup": "shoulders"
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747c"
+    },
+    "muscleGroup": "arms",
+    "title": "Barbell Bicep Curl",
+    "description": "Barbell curl for biceps.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747d"
+    },
+    "muscleGroup": "arms",
+    "title": "Dumbbell Curl",
+    "description": "Curl dumbbells for biceps.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747e"
+    },
+    "muscleGroup": "arms",
+    "title": "Hammer Curl",
+    "description": "Neutral grip curl variation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b747f"
+    },
+    "muscleGroup": "arms",
+    "title": "Preacher Curl",
+    "description": "Supported curl for isolation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7480"
+    },
+    "muscleGroup": "arms",
+    "title": "Tricep Rope Pushdown",
+    "description": "Cable pushdown for triceps.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7481"
+    },
+    "muscleGroup": "arms",
+    "title": "Tricep Dips",
+    "description": "Bodyweight tricep dip exercise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Added Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7482"
+    },
+    "muscleGroup": "arms",
+    "title": "Skull Crushers",
+    "description": "Lying barbell tricep extension.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7483"
+    },
+    "muscleGroup": "arms",
+    "title": "Close Grip Bench Press",
+    "description": "Narrow grip press for triceps.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7484"
+    },
+    "muscleGroup": "arms",
+    "title": "Cable Curl",
+    "description": "Cable-based bicep curl motion.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7485"
+    },
+    "muscleGroup": "arms",
+    "title": "Overhead Tricep Extension",
+    "description": "Dumbbell overhead tricep stretch.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7486"
+    },
+    "muscleGroup": "legs",
+    "title": "Back Squats",
+    "description": "Barbell squat for legs.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7487"
+    },
+    "muscleGroup": "legs",
+    "title": "Front Squats",
+    "description": "Front-loaded squat variation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7488"
+    },
+    "muscleGroup": "legs",
+    "title": "Lunges",
+    "description": "Alternating stepping leg movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7489"
+    },
+    "muscleGroup": "legs",
+    "title": "Leg Press",
+    "description": "Machine leg pressing movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748a"
+    },
+    "muscleGroup": "legs",
+    "title": "Romanian Deadlift",
+    "description": "Hamstring-focused hip hinge.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748b"
+    },
+    "muscleGroup": "legs",
+    "title": "Leg Curl Machine",
+    "description": "Machine curl for hamstrings.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748c"
+    },
+    "muscleGroup": "legs",
+    "title": "Leg Extension Machine",
+    "description": "Machine quad extension motion.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748d"
+    },
+    "muscleGroup": "legs",
+    "title": "Calf Raise",
+    "description": "Raise heels for calves.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748e"
+    },
+    "muscleGroup": "legs",
+    "title": "Bulgarian Split Squats",
+    "description": "Elevated rear-leg squat variation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b748f"
+    },
+    "muscleGroup": "legs",
+    "title": "Hip Thrust",
+    "description": "Glute-focused hip extension lift.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7490"
+    },
+    "muscleGroup": "abs",
+    "title": "Crunches",
+    "description": "Basic abdominal crunch movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7491"
+    },
+    "muscleGroup": "abs",
+    "title": "Plank",
+    "description": "Static core stability hold.",
+    "primaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Rounds",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7492"
+    },
+    "muscleGroup": "abs",
+    "title": "Hanging Leg Raise",
+    "description": "Leg lift while hanging.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Added Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7493"
+    },
+    "muscleGroup": "abs",
+    "title": "Russian Twists",
+    "description": "Twisting core rotation exercise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7494"
+    },
+    "muscleGroup": "abs",
+    "title": "Mountain Climbers",
+    "description": "Fast alternating knee drive.",
+    "primaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7495"
+    },
+    "muscleGroup": "abs",
+    "title": "Bicycle Crunch",
+    "description": "Alternating elbow-to-knee crunch.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (sec)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7496"
+    },
+    "muscleGroup": "abs",
+    "title": "Toe Touches",
+    "description": "Reach to touch toes upward.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Sets",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7497"
+    },
+    "muscleGroup": "abs",
+    "title": "Side Plank",
+    "description": "Side core stability hold.",
+    "primaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Side",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7498"
+    },
+    "muscleGroup": "abs",
+    "title": "Cable Woodchoppers",
+    "description": "Rotational cable chop motion.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "6929a4098caa5bcc998b7499"
+    },
+    "muscleGroup": "abs",
+    "title": "Ab Wheel Rollouts",
+    "description": "Wheel rollout for core strength.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Distance",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e249"
+    },
+    "muscleGroup": "cardio",
+    "title": "Box Jumps",
+    "description": "Jump onto a sturdy box or platform with both feet, then step or jump down.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Box Height (cm)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24a"
+    },
+    "muscleGroup": "cardio",
+    "title": "Lateral Shuffles",
+    "description": "Move quickly sideways with a low, athletic stance, touching the floor at the turn.",
+    "primaryQualifier": {
+      "label": "Distance (meters)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24b"
+    },
+    "muscleGroup": "cardio",
+    "title": "Rowing Machine",
+    "description": "Perform a full rowing stroke, engaging legs, core, and arms.",
+    "primaryQualifier": {
+      "label": "Distance (meters)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Resistance Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24c"
+    },
+    "muscleGroup": "cardio",
+    "title": "Skater Jumps",
+    "description": "Jump laterally from one foot to the other, crossing the back leg behind the front leg and swinging arms for momentum.",
+    "primaryQualifier": {
+      "label": "Repetitions (total)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24d"
+    },
+    "muscleGroup": "cardio",
+    "title": "Treadmill Sprints (Interval)",
+    "description": "Alternate between short bursts of maximal effort running and periods of walking/jogging recovery.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Speed (km/h)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24e"
+    },
+    "muscleGroup": "cardio",
+    "title": "Seal Jacks",
+    "description": "Similar to Jumping Jacks, but arms clap in front of the chest on the out-jump.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e24f"
+    },
+    "muscleGroup": "cardio",
+    "title": "Airdyne/Assault Bike",
+    "description": "Pedal and pump arms against the air resistance of the fan wheel.",
+    "primaryQualifier": {
+      "label": "Calories Burned",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "EZ-Bar Curl",
+    "description": "Bicep curl using EZ-bar for reduced wrist strain.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Incline Dumbbell Curl",
+    "description": "Bicep curl performed on incline bench for greater stretch.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Concentration Curl",
+    "description": "Single-arm seated curl for bicep isolation.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Reverse Barbell Curl",
+    "description": "Overhand grip curl targeting brachialis and forearms.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Spider Curl",
+    "description": "Chest-supported curl emphasizing peak contraction.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Cable Hammer Curl",
+    "description": "Neutral grip cable curl for brachialis activation.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Overhead Cable Tricep Extension",
+    "description": "Cable extension emphasizing long head of triceps.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Single-Arm Dumbbell Tricep Kickback",
+    "description": "Isolated tricep extension using dumbbell.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Bench Dips",
+    "description": "Bodyweight tricep dip using bench support.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Added Weight (kg)", "values": [0] }
+  },
+  {
+    "muscleGroup": "arms",
+    "title": "Cable Tricep Kickback",
+    "description": "Cable-based tricep extension for constant tension.",
+    "primaryQualifier": { "label": "Repetitions", "values": [0] },
+    "secondaryQualifier": { "label": "Weight (kg)", "values": [0] }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e250"
+    },
+    "muscleGroup": "cardio",
+    "title": "Jump Lunges",
+    "description": "Perform a lunge, then explosively jump up and switch the position of your legs in the air, landing in a lunge on the opposite side.",
+    "primaryQualifier": {
+      "label": "Repetitions (total)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e251"
+    },
+    "muscleGroup": "cardio",
+    "title": "Stair Climber",
+    "description": "Climb on a revolving set of stairs or steps.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Floors Climbed",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579f627a4253e7160e252"
+    },
+    "muscleGroup": "cardio",
+    "title": "Agility Ladder Drills",
+    "description": "Execute quick footwork patterns (e.g., in-and-outs) through the rungs of an agility ladder.",
+    "primaryQualifier": {
+      "label": "Repetitions (runs)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "693579fe27a4253e7160e254"
+    },
+    "muscleGroup": "cardio",
+    "title": "Walking",
+    "description": "Briskly walk outdoors or on a treadmill to maintain a steady heart rate.",
+    "primaryQualifier": {
+      "label": "Distance (km)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (minutes)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb3"
+    },
+    "muscleGroup": "chest",
+    "title": "Flat Dumbbell Bench Press",
+    "description": "Chest press using dumbbells on a flat bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb4"
+    },
+    "muscleGroup": "chest",
+    "title": "Incline Cable Fly",
+    "description": "Upper chest isolation using cables on incline.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb5"
+    },
+    "muscleGroup": "chest",
+    "title": "Decline Dumbbell Press",
+    "description": "Lower chest press with dumbbells on decline bench.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb6"
+    },
+    "muscleGroup": "chest",
+    "title": "Smith Machine Bench Press",
+    "description": "Chest press using Smith machine for controlled motion.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb7"
+    },
+    "muscleGroup": "chest",
+    "title": "Low Cable Chest Fly",
+    "description": "Chest fly emphasizing lower pecs using low cables.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb8"
+    },
+    "muscleGroup": "chest",
+    "title": "High Cable Chest Fly",
+    "description": "Cable fly targeting upper chest from high pulley.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fb9"
+    },
+    "muscleGroup": "chest",
+    "title": "Wide-Grip Push-Ups",
+    "description": "Push-up variation focusing more on chest activation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Variation",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fba"
+    },
+    "muscleGroup": "chest",
+    "title": "Feet-Elevated Push-Ups",
+    "description": "Push-up variation emphasizing upper chest.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Elevation Height",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fbb"
+    },
+    "muscleGroup": "chest",
+    "title": "Svend Press",
+    "description": "Chest squeeze press using plates.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a3f339855dfcd1d0fbc"
+    },
+    "muscleGroup": "chest",
+    "title": "Isometric Chest Squeeze",
+    "description": "Static chest contraction using palms or plates.",
+    "primaryQualifier": {
+      "label": "Duration (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Resistance Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fbe"
+    },
+    "muscleGroup": "back",
+    "title": "Romanian Deadlift",
+    "description": "Hip-hinge movement targeting lower back and hamstrings.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fbf"
+    },
+    "muscleGroup": "back",
+    "title": "Wide-Grip Lat Pulldown",
+    "description": "Lat-focused pulldown with wide grip.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc0"
+    },
+    "muscleGroup": "back",
+    "title": "Close-Grip Lat Pulldown",
+    "description": "Pulldown emphasizing lower lats.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc1"
+    },
+    "muscleGroup": "back",
+    "title": "Chest-Supported Dumbbell Row",
+    "description": "Row performed on incline bench to reduce lower-back strain.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc2"
+    },
+    "muscleGroup": "back",
+    "title": "Inverted Row",
+    "description": "Bodyweight horizontal pulling movement.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Body Angle",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc3"
+    },
+    "muscleGroup": "back",
+    "title": "Straight-Arm Pulldown",
+    "description": "Cable isolation exercise for lat activation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc4"
+    },
+    "muscleGroup": "back",
+    "title": "Smith Machine Row",
+    "description": "Guided barbell row using Smith machine.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc5"
+    },
+    "muscleGroup": "back",
+    "title": "Meadows Row",
+    "description": "Single-arm landmine row emphasizing upper back.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc6"
+    },
+    "muscleGroup": "back",
+    "title": "Good Mornings",
+    "description": "Posterior-chain movement focusing on lower back.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743a7e339855dfcd1d0fc7"
+    },
+    "muscleGroup": "back",
+    "title": "Rack Pull",
+    "description": "Partial deadlift emphasizing upper back and traps.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fc9"
+    },
+    "muscleGroup": "abs",
+    "title": "Leg Raises",
+    "description": "Supine leg lift focusing on lower abs.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Sets",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fca"
+    },
+    "muscleGroup": "abs",
+    "title": "Reverse Crunch",
+    "description": "Pelvic lift targeting lower abdominal muscles.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Sets",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fcb"
+    },
+    "muscleGroup": "abs",
+    "title": "Flutter Kicks",
+    "description": "Alternating leg kicks while lying down.",
+    "primaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fcc"
+    },
+    "muscleGroup": "abs",
+    "title": "V-Ups",
+    "description": "Simultaneous upper and lower body crunch.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Sets",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fcd"
+    },
+    "muscleGroup": "abs",
+    "title": "Sit-Ups",
+    "description": "Full-range abdominal flexion exercise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Sets",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fce"
+    },
+    "muscleGroup": "abs",
+    "title": "Hollow Body Hold",
+    "description": "Isometric core hold emphasizing total abdominal tension.",
+    "primaryQualifier": {
+      "label": "Duration (sec)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Rounds",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fcf"
+    },
+    "muscleGroup": "abs",
+    "title": "Standing Cable Crunch",
+    "description": "Weighted crunch using cable machine.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fd0"
+    },
+    "muscleGroup": "abs",
+    "title": "Decline Bench Crunch",
+    "description": "Crunch performed on decline bench for added resistance.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Bench Angle",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fd1"
+    },
+    "muscleGroup": "abs",
+    "title": "Knee Tucks",
+    "description": "Knees pulled toward chest from seated or hanging position.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Variation",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743ac5339855dfcd1d0fd2"
+    },
+    "muscleGroup": "abs",
+    "title": "Dragon Flag",
+    "description": "Advanced core movement emphasizing full abdominal control.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Difficulty Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd4"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Standing Dumbbell Press",
+    "description": "Standing shoulder press using dumbbells.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd5"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Smith Machine Overhead Press",
+    "description": "Guided barbell overhead press using Smith machine.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd6"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Dumbbell Lateral Raise (Seated)",
+    "description": "Seated side raise to isolate lateral delts.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd7"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Cable Front Raise",
+    "description": "Front delt raise using cable machine.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd8"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Bent-Over Dumbbell Lateral Raise",
+    "description": "Rear delt isolation with bent-over posture.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fd9"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Face Pull (Rope)",
+    "description": "Cable face pull emphasizing rear delts and upper back.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fda"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Landmine Press",
+    "description": "Angled pressing movement using landmine setup.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fdb"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Plate Front Raise",
+    "description": "Front delt raise holding weight plate.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fdc"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Y-Raise",
+    "description": "Light raise movement forming a Y shape for shoulder stability.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743af6339855dfcd1d0fdd"
+    },
+    "muscleGroup": "shoulders",
+    "title": "Resistance Band Lateral Raise",
+    "description": "Band-based lateral raise for constant tension.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Band Resistance Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fdf"
+    },
+    "muscleGroup": "cardio",
+    "title": "Jump Rope",
+    "description": "Continuous rope skipping to elevate heart rate.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe0"
+    },
+    "muscleGroup": "cardio",
+    "title": "Burpees",
+    "description": "Full-body explosive movement combining squat, jump, and plank.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe1"
+    },
+    "muscleGroup": "cardio",
+    "title": "High Knees",
+    "description": "Rapid running-in-place bringing knees toward chest.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe2"
+    },
+    "muscleGroup": "cardio",
+    "title": "Elliptical Trainer",
+    "description": "Low-impact cardio movement using elliptical machine.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Resistance Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe3"
+    },
+    "muscleGroup": "cardio",
+    "title": "Cycling",
+    "description": "Outdoor or stationary cycling for cardiovascular endurance.",
+    "primaryQualifier": {
+      "label": "Distance (km)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (minutes)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe4"
+    },
+    "muscleGroup": "cardio",
+    "title": "Battle Ropes",
+    "description": "Alternating or double-arm rope slams for conditioning.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Intensity Level",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe5"
+    },
+    "muscleGroup": "cardio",
+    "title": "Bear Crawls",
+    "description": "Crawl forward on hands and feet maintaining a low position.",
+    "primaryQualifier": {
+      "label": "Distance (meters)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe6"
+    },
+    "muscleGroup": "cardio",
+    "title": "Jump Squats",
+    "description": "Explosive squat jumps performed continuously.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe7"
+    },
+    "muscleGroup": "cardio",
+    "title": "Shadow Boxing",
+    "description": "Continuous punching combinations performed without resistance.",
+    "primaryQualifier": {
+      "label": "Time (seconds)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Rounds",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b1e339855dfcd1d0fe8"
+    },
+    "muscleGroup": "cardio",
+    "title": "Farmer’s Walk (Fast Pace)",
+    "description": "Carry heavy weights while walking quickly.",
+    "primaryQualifier": {
+      "label": "Distance (meters)",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0fea"
+    },
+    "muscleGroup": "legs",
+    "title": "Goblet Squat",
+    "description": "Squat holding a dumbbell or kettlebell at chest level.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0feb"
+    },
+    "muscleGroup": "legs",
+    "title": "Hack Squat Machine",
+    "description": "Machine-assisted squat emphasizing quads.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0fec"
+    },
+    "muscleGroup": "legs",
+    "title": "Sumo Squat",
+    "description": "Wide-stance squat targeting inner thighs and glutes.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0fed"
+    },
+    "muscleGroup": "legs",
+    "title": "Walking Lunges",
+    "description": "Forward-moving lunge variation.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0fee"
+    },
+    "muscleGroup": "legs",
+    "title": "Step-Ups",
+    "description": "Step onto an elevated platform and drive through the lead leg.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Box Height (cm)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0fef"
+    },
+    "muscleGroup": "legs",
+    "title": "Seated Calf Raise",
+    "description": "Calf raise emphasizing the soleus muscle.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0ff0"
+    },
+    "muscleGroup": "legs",
+    "title": "Standing Calf Raise Machine",
+    "description": "Machine-assisted standing calf raise.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0ff1"
+    },
+    "muscleGroup": "legs",
+    "title": "Single-Leg Romanian Deadlift",
+    "description": "Unilateral hip hinge for hamstrings and balance.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0ff2"
+    },
+    "muscleGroup": "legs",
+    "title": "Glute Bridge",
+    "description": "Floor-based hip extension focusing on glutes.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Added Weight (kg)",
+      "values": [0]
+    }
+  },
+  {
+    "_id": {
+      "$oid": "69743b59339855dfcd1d0ff3"
+    },
+    "muscleGroup": "legs",
+    "title": "Nordic Hamstring Curl",
+    "description": "Eccentric hamstring exercise using bodyweight.",
+    "primaryQualifier": {
+      "label": "Repetitions",
+      "values": [0]
+    },
+    "secondaryQualifier": {
+      "label": "Assistance Level",
+      "values": [0]
+    }
+  }
+]

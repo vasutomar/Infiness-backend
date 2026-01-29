@@ -135,6 +135,7 @@ router.post("/login", async (req, res) => {
         email: user.email,
         streak: user.streak,
         eventPlan: user.eventPlan,
+        isEmailVerified: user.isEmailVerified,
       },
     });
   } catch (err) {
