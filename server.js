@@ -12,6 +12,7 @@ const diet = require("./routes/diet.js");
 const event = require("./routes/event.js");
 const payments = require("./routes/payments.js");
 const maps = require("./routes/maps.js");
+const goals = require("./routes/goals.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -32,6 +33,7 @@ app.use("/api/diet", diet);
 app.use("/api/events", event);
 app.use("/api/payment", payments);
 app.use("/api/maps", maps);
+app.use("/api/goal", goals);
 
 module.exports = app;
 const port = process.env.PORT;
