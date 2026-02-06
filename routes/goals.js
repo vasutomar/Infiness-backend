@@ -3,6 +3,18 @@ const express = require("express");
 const router = express.Router();
 const winston = require("../utils/winston");
 const Goal = require("../models/Goal");
+const goal_types = require("./data/exercises.json");
+
+router.get("/metadata", async (req, res) => {
+  try {
+    res.json(goal_types);
+  } catch (err) {
+    winston.error(`Error fetching goal metadata: ${err.message}`, {
+      error: err.stack,
+    });
+    res.status(500).json({ error: true, msg: "Internal server error" });
+  }
+});
 
 router.get("/", async (req, res) => {
   try {
@@ -133,7 +145,7 @@ router.post("/", async (req, res) => {
     const goal = new Goal({
       ...goalData,
       userId,
-      current: goalData.initial,
+      initial: goalData.current,
       streak: 0,
       comparison,
       progress: 0,
@@ -141,7 +153,7 @@ router.post("/", async (req, res) => {
       logs: [
         {
           date: normalizeDate(new Date()),
-          value: goalData.initial,
+          value: goalData.current,
         },
       ],
       startDate: normalizeDate(new Date()),
@@ -154,7 +166,9 @@ router.post("/", async (req, res) => {
     winston.error(`Error creating goal: ${err.message}`, {
       error: err.stack,
     });
-    res.status(500).json({ error: true, msg: "Internal server error" });
+    res
+      .status(500)
+      .json({ error: true, msg: `Internal server error ${err.message}` });
   }
 });
 
