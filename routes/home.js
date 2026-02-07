@@ -53,7 +53,6 @@ router.get("/", async (req, res) => {
     events = events.filter(
       (e) => getEventEndDate(e.date, e.duration) >= today.getTime(),
     );
-    console.log({ userId, date: today });
     let workoutData = await Workout.findOne({ userId, date: today });
     let totalWeight = 0;
     let muscles = [];
@@ -75,7 +74,7 @@ router.get("/", async (req, res) => {
         muscles,
       };
     }
-    homeData.quote = quote;
+    homeData.quote = quote[0];
     diet?.plan?.week && (homeData.diet = diet.plan.week[day]);
     goals.length && (homeData.goals = goals);
     events.length && (homeData.event = events);
