@@ -13,6 +13,7 @@ const event = require("./routes/event.js");
 const payments = require("./routes/payments.js");
 const maps = require("./routes/maps.js");
 const goals = require("./routes/goals.js");
+const home = require("./routes/home.js");
 
 const authMiddleware = require("./middleware/authMiddleware");
 
@@ -34,6 +35,7 @@ app.use("/api/events", event);
 app.use("/api/payment", payments);
 app.use("/api/maps", maps);
 app.use("/api/goal", goals);
+app.use("/api/home", home);
 
 module.exports = app;
 const port = process.env.PORT;

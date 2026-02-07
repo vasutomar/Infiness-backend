@@ -7,6 +7,10 @@ const router = express.Router();
 const dotenv = require("dotenv");
 dotenv.config();
 
+function getEventEndDate(date, duration) {
+  return date.setDate(date.getDate() + duration);
+}
+
 router.get("/health", function (req, res) {
   winston.info("Events health check endpoint called");
   res.json({
@@ -24,7 +28,7 @@ router.get("/", async (req, res) => {
 
   try {
     winston.info(
-      `Fetching events near location: lat=${latitude}, lon=${longitude}, distance=${distance}m`
+      `Fetching events near location: lat=${latitude}, lon=${longitude}, distance=${distance}m`,
     );
     let events = await Event.find({
       participants: { $nin: [userId] },
@@ -39,7 +43,7 @@ router.get("/", async (req, res) => {
       },
     });
     winston.info(
-      `Found ${events.length} events within ${distance}m of location`
+      `Found ${events.length} events within ${distance}m of location`,
     );
     res.json(events);
   } catch (err) {
@@ -79,12 +83,16 @@ router.get("/my", async (req, res) => {
       participants: userId,
       isCancelled: false,
     });
+    let today = new Date();
+    myEvents = myEvents.filter(
+      (e) => getEventEndDate(e.date, e.duration) >= today.getTime(),
+    );
     winston.info(`Found ${myEvents.length} events for user: ${userId}`);
     res.json(myEvents);
   } catch (err) {
     winston.error(
       `Error fetching events for user ${req.user.id}: ${err.message}`,
-      { error: err.stack }
+      { error: err.stack },
     );
     res
       .status(500)
@@ -101,13 +109,13 @@ router.get("/organizing", async (req, res) => {
       isCancelled: false,
     });
     winston.info(
-      `Found ${orgEvents.length} organizing events for user: ${userId}`
+      `Found ${orgEvents.length} organizing events for user: ${userId}`,
     );
     res.json(orgEvents);
   } catch (err) {
     winston.error(
       `Error fetching organizing events for user ${req.user.id}: ${err.message}`,
-      { error: err.stack }
+      { error: err.stack },
     );
     res
       .status(500)
@@ -133,13 +141,13 @@ router.get("/participants/:eventId", async (req, res) => {
         name: 1,
         email: 1,
         _id: 0,
-      }
+      },
     );
     res.json(participantData);
   } catch (err) {
     winston.error(
       `Error fetching organizing events for user ${req.user.id}: ${err.message}`,
-      { error: err.stack }
+      { error: err.stack },
     );
     res
       .status(500)
@@ -165,11 +173,11 @@ router.post("/", async (req, res) => {
           "organizerDetails.userId": userId,
         },
         { $set: data },
-        { new: true }
+        { new: true },
       );
       if (!event) {
         winston.warn(
-          `Event update failed - event ${id} not found or not owned by user: ${userId}`
+          `Event update failed - event ${id} not found or not owned by user: ${userId}`,
         );
         return res
           .status(404)
@@ -206,7 +214,7 @@ router.post("/", async (req, res) => {
         ...data,
       });
       winston.info(
-        `Event created successfully: ${event._id} by user: ${userId}`
+        `Event created successfully: ${event._id} by user: ${userId}`,
       );
       res.json(event);
     }
@@ -216,7 +224,7 @@ router.post("/", async (req, res) => {
       {
         error: err.stack,
         isUpdate: !!req.body._id,
-      }
+      },
     );
     res
       .status(500)
@@ -235,16 +243,16 @@ router.post("/cancel", async (req, res) => {
         "organizerDetails.userId": userId,
       },
       { isCancelled: true },
-      { upsert: false, returnDocument: "after" }
+      { upsert: false, returnDocument: "after" },
     );
 
     if (!cancelledEvent) {
       winston.warn(
-        `Event cancellation failed - event ${data._id} not found or not owned by user: ${userId}`
+        `Event cancellation failed - event ${data._id} not found or not owned by user: ${userId}`,
       );
     } else {
       winston.info(
-        `Event cancelled successfully: ${data._id} by user: ${userId}`
+        `Event cancelled successfully: ${data._id} by user: ${userId}`,
       );
     }
 
@@ -254,7 +262,7 @@ router.post("/cancel", async (req, res) => {
       `Error cancelling event ${req.body._id} for user ${req.user.id}: ${err.message}`,
       {
         error: err.stack,
-      }
+      },
     );
     res
       .status(500)
@@ -280,12 +288,12 @@ router.post("/register", async (req, res) => {
         _id: data._id,
       },
       { $push: { participants: userId } },
-      { upsert: false, returnDocument: "after" }
+      { upsert: false, returnDocument: "after" },
     );
 
     if (!registeredEvent) {
       winston.warn(
-        `Failed to registered - event ${data._id} not found or not owned by user: ${userId}`
+        `Failed to registered - event ${data._id} not found or not owned by user: ${userId}`,
       );
     } else {
       winston.info(`Registered successfully: ${data._id} by user: ${userId}`);
@@ -297,7 +305,7 @@ router.post("/register", async (req, res) => {
       `Error registering for event ${req.body._id} for user ${req.user.id}: ${err.message}`,
       {
         error: err.stack,
-      }
+      },
     );
     res
       .status(500)
@@ -310,23 +318,23 @@ router.post("/cancel-register", async (req, res) => {
     const userId = req.user.id;
     const data = req.body;
     winston.info(
-      `Cancelling registering for event: ${data._id} by user: ${userId}`
+      `Cancelling registering for event: ${data._id} by user: ${userId}`,
     );
     let registeredEvent = await Event.findOneAndUpdate(
       {
         _id: data._id,
       },
       { $pull: { participants: userId } },
-      { upsert: false, returnDocument: "after" }
+      { upsert: false, returnDocument: "after" },
     );
 
     if (!registeredEvent) {
       winston.warn(
-        `Failed to cancel registeration - event ${data._id} not found or not owned by user: ${userId}`
+        `Failed to cancel registeration - event ${data._id} not found or not owned by user: ${userId}`,
       );
     } else {
       winston.info(
-        `Registion cancelled successfully: ${data._id} by user: ${userId}`
+        `Registion cancelled successfully: ${data._id} by user: ${userId}`,
       );
     }
 
@@ -336,7 +344,7 @@ router.post("/cancel-register", async (req, res) => {
       `Error cancelling registeration for event ${req.body._id} for user ${req.user.id}: ${err.message}`,
       {
         error: err.stack,
-      }
+      },
     );
     res
       .status(500)
