@@ -56,23 +56,25 @@ router.get("/", async (req, res) => {
     let workoutData = await Workout.findOne({ userId, date: today });
     let totalWeight = 0;
     let muscles = [];
-    Object.keys(workoutData.workout).forEach((k) => {
-      if (workoutData.workout[k].length) {
-        muscles.push(k);
-        workoutData.workout[k].forEach((e) => {
-          let len = e.primaryQualifier.values.length;
-          for (let i = 0; i < len; i++) {
-            totalWeight +=
-              e.primaryQualifier.values[i] * e.secondaryQualifier.values[i];
-          }
-        });
+    if (workoutData) {
+      Object.keys(workoutData.workout).forEach((k) => {
+        if (workoutData.workout[k].length) {
+          muscles.push(k);
+          workoutData.workout[k].forEach((e) => {
+            let len = e.primaryQualifier.values.length;
+            for (let i = 0; i < len; i++) {
+              totalWeight +=
+                e.primaryQualifier.values[i] * e.secondaryQualifier.values[i];
+            }
+          });
+        }
+      });
+      if (muscles.length) {
+        homeData.stats = {
+          totalWeight,
+          muscles,
+        };
       }
-    });
-    if (muscles.length) {
-      homeData.stats = {
-        totalWeight,
-        muscles,
-      };
     }
     homeData.quote = quote[0];
     diet?.plan?.week && (homeData.diet = diet.plan.week[day]);
