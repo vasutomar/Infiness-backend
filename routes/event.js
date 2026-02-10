@@ -32,6 +32,8 @@ router.get("/", async (req, res) => {
     );
     let events = await Event.find({
       participants: { $nin: [userId] },
+      isComplete: false,
+      isCancelled: false,
       location: {
         $near: {
           $geometry: {
@@ -62,7 +64,10 @@ router.get("/", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     winston.info("Fetching all events");
-    let allEvents = await Event.find({});
+    let allEvents = await Event.find({
+      isComplete: false,
+      isCancelled: false,
+    });
     winston.info(`Retrieved ${allEvents.length} total events`);
     res.json(allEvents);
   } catch (err) {
@@ -82,6 +87,7 @@ router.get("/my", async (req, res) => {
     let myEvents = await Event.find({
       participants: userId,
       isCancelled: false,
+      isComplete: false,
     });
     let today = new Date();
     myEvents = myEvents.filter(
@@ -107,6 +113,7 @@ router.get("/organizing", async (req, res) => {
     let orgEvents = await Event.find({
       "organizerDetails.userId": userId,
       isCancelled: false,
+      isComplete: false,
     });
     winston.info(
       `Found ${orgEvents.length} organizing events for user: ${userId}`,
@@ -136,6 +143,8 @@ router.get("/participants/:eventId", async (req, res) => {
         _id: {
           $in: participants,
         },
+        isComplete: false,
+        isCancelled: false,
       },
       {
         name: 1,
@@ -251,6 +260,8 @@ router.post("/cancel", async (req, res) => {
       {
         _id: data._id,
         "organizerDetails.userId": userId,
+        isComplete: false,
+        isCancelled: false,
       },
       { isCancelled: true },
       { upsert: false, returnDocument: "after" },
@@ -287,6 +298,8 @@ router.post("/register", async (req, res) => {
     winston.info(`Registering for event: ${data._id} by user: ${userId}`);
     let event = await Event.findOne({
       _id: data._id,
+      isComplete: false,
+      isCancelled: false,
     });
     if (event.participants.length >= event.participantLimit) {
       return res
@@ -333,6 +346,8 @@ router.post("/cancel-register", async (req, res) => {
     let registeredEvent = await Event.findOneAndUpdate(
       {
         _id: data._id,
+        isComplete: false,
+        isCancelled: false,
       },
       { $pull: { participants: userId } },
       { upsert: false, returnDocument: "after" },
