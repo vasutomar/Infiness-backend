@@ -159,7 +159,6 @@ router.post("/", async (req, res) => {
   try {
     const userId = req.user.id;
     const data = req.body;
-    // NEVER allow client _id to be written
     let event;
 
     if (req.body._id) {
@@ -210,6 +209,17 @@ router.post("/", async (req, res) => {
           msg: `Cannot create more plans, please contact support`,
         });
       }
+
+      // Setting correct start and end dates
+      let startDate = new Date(data.date);
+      startDate.setHours(data.timings.start.hour, data.timings.start.min);
+      let endDate = startDate;
+      endDate.setDate(endDate.getDate() + data.duration);
+      endDate.setHours(data.timings.end.hour, data.timings.end.min);
+
+      data.endDate = endDate;
+      data.startDate = startDate;
+
       event = await Event.create({
         ...data,
       });

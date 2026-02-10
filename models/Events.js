@@ -41,11 +41,13 @@ const EventsSchema = new mongoose.Schema({
   },
   date: { type: Date, required: true },
   duration: { type: Number, required: true },
+  endDate: { type: Date, required: true },
   type: {
     type: String,
     enum: ["Wellness", "Sport", "Running", "Strength"],
     required: true,
   },
+  isComplete: { type: Boolean, required: false, default: false },
   isCancelled: { type: Boolean, required: true, default: false },
   location: {
     type: {
