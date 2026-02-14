@@ -1,4 +1,4 @@
-const Event = require("../models/Events");
+const Event = require("./Events");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
